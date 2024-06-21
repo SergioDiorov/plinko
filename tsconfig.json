@@ -16,7 +16,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@/*": ["./src/*"]
+      "src/*": ["./src/*"]
     },
     "baseUrl": "./"
   },
@@ -26,5 +26,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ]
+  ],
+  "exclude": ["node_modules"]
 }
