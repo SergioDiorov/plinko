@@ -1,0 +1,21 @@
+div .mainConainer {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  background-color: #dff6ff;
+  background: url('./assets/BlueBackground.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  user-select: none;
+  overflow: auto;
+
+  @media (max-height: 980px) {
+    min-height: 980px;
+  }
+}

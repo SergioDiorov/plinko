@@ -1,0 +1,186 @@
+div .centerImage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+div .colourfulBG {
+  max-width: 770px;
+}
+
+div .frame {
+  max-width: 815px;
+  max-height: 925px;
+}
+
+div .rollsRemaining {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+div .setingsImage {
+  position: fixed;
+  right: 26px;
+  top: 26px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    transform: rotate(5deg);
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+div .score {
+  position: absolute;
+  z-index: 100;
+
+  &Left {
+    left: -325px;
+  }
+  &Right {
+    right: -325px;
+  }
+}
+
+div .board {
+  max-width: 468px;
+  max-height: 710px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  user-select: auto;
+
+  position: absolute;
+  top: 45.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+
+  canvas {
+    z-index: 9;
+  }
+}
+
+div .wall {
+  position: absolute;
+  bottom: 95px;
+  z-index: 99;
+
+  &Left {
+    left: 0;
+  }
+  &Right {
+    right: 0;
+  }
+}
+div .pointLines {
+  position: absolute;
+  bottom: 0px;
+  z-index: 99;
+}
+
+div .boardDots {
+  position: absolute;
+  bottom: 90px;
+  z-index: 99;
+}
+
+div .boardBackground {
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
+}
+
+div .scores {
+  position: absolute;
+  bottom: -102px;
+  left: -15px;
+  z-index: 9;
+}
+div .others {
+  position: absolute;
+  z-index: 9;
+  width: 40px;
+
+  &One {
+    left: -23px;
+    bottom: -89px;
+    transform: rotate(23deg);
+  }
+  &Two {
+    left: 29px;
+    bottom: -103px;
+    transform: rotate(13deg);
+  }
+  &Three {
+    left: 87px;
+    bottom: -112px;
+    transform: rotate(8deg);
+  }
+  &Four {
+    left: 148px;
+    bottom: -119px;
+    transform: rotate(6.4deg);
+  }
+  &Five {
+    left: 214px;
+    bottom: -123px;
+    transform: rotate(0deg);
+  }
+  &Six {
+    left: 281px;
+    bottom: -122px;
+    transform: rotate(-3.4deg);
+  }
+  &Seven {
+    left: 340px;
+    bottom: -116px;
+    transform: rotate(-8.2deg);
+  }
+  &Eight {
+    left: 397px;
+    bottom: -105px;
+    transform: rotate(-13.9deg);
+  }
+  &Nine {
+    left: 450px;
+    bottom: -90px;
+    transform: rotate(339deg);
+  }
+}
+
+div .numbers {
+  position: absolute;
+  z-index: 5;
+  top: 58px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 34px;
+
+  .ball {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  span {
+    font-weight: 400;
+    font-size: 28px;
+    text-align: center;
+    color: #d4b291;
+  }
+}

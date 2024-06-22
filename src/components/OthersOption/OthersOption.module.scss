@@ -1,0 +1,51 @@
+div .others {
+  position: absolute;
+  z-index: 9;
+  width: 40px;
+
+  &1 {
+    left: -23px;
+    bottom: -89px;
+    transform: rotate(23deg);
+  }
+  &2 {
+    left: 29px;
+    bottom: -103px;
+    transform: rotate(13deg);
+  }
+  &3 {
+    left: 87px;
+    bottom: -112px;
+    transform: rotate(8deg);
+  }
+  &4 {
+    left: 148px;
+    bottom: -119px;
+    transform: rotate(6.4deg);
+  }
+  &5 {
+    left: 214px;
+    bottom: -123px;
+    transform: rotate(0deg);
+  }
+  &6 {
+    left: 281px;
+    bottom: -122px;
+    transform: rotate(-3.4deg);
+  }
+  &7 {
+    left: 340px;
+    bottom: -116px;
+    transform: rotate(-8.2deg);
+  }
+  &8 {
+    left: 397px;
+    bottom: -105px;
+    transform: rotate(-13.9deg);
+  }
+  &9 {
+    left: 450px;
+    bottom: -90px;
+    transform: rotate(339deg);
+  }
+}

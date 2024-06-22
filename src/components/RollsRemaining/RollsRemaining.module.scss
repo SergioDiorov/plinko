@@ -1,0 +1,33 @@
+div .rollsRemainingContainer {
+  width: 307px;
+  height: 186px;
+
+  background: url('../../assets/RollsRemaining.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+div .text {
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.25),
+    inset 0 3px 1px rgba(255, 255, 255, 0.35),
+    inset -2px 0 4px rgba(166, 98, 39, 0.25),
+    0 4px 4px rgba(0, 0, 0, 0.25),
+    -3px 2px 0 #bd4036;
+
+  &Number {
+    font-size: 48px;
+  }
+}
