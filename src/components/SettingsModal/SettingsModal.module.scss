@@ -1,0 +1,345 @@
+div .settingsWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9;
+}
+
+div .settingsBackground {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10.199999809265137px);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  animation: show 0.2s cubic-bezier(0.11, 0, 0.5, 0) 0s 1 normal forwards;
+  opacity: 0;
+}
+
+div .settingsContainer {
+  position: absolute;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url('../../assets/SettingsBackground.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  max-width: 944px;
+  max-height: 720px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  animation: entrance 0.4s cubic-bezier(0.42, 0, 0.57, 1.27) 0s 1 normal
+    forwards;
+  opacity: 0;
+  padding: 26px 64px 40px;
+
+  button {
+    opacity: 1;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+}
+
+div .title {
+  font-weight: 400;
+  font-size: 48px;
+  letter-spacing: 0.02em;
+  color: #5c5c5c;
+  margin: 0 0 20px;
+  text-shadow:
+    1px 1px 1px rgba(0, 0, 0, 0.3),
+    -1px -1px 1px rgba(255, 255, 255, 0.5);
+}
+
+div .settings {
+  width: 100%;
+}
+
+div .remaining {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  margin: 0 0 16px;
+  p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 40px;
+    color: #5c5c5c;
+    margin: 0;
+    text-shadow:
+      1px 1px 0 rgba(255, 255, 255, 0.35),
+      1px 1px 0 rgba(0, 0, 0, 0.15);
+  }
+}
+
+div .infoBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  width: 150px;
+  height: 66px;
+  box-shadow:
+    inset 3px -2px 4px 0 rgba(103, 103, 103, 0.25),
+    inset 0 4px 2px 0 rgba(255, 255, 255, 0.5),
+    inset 3px -2px 4px 0 rgba(144, 144, 144, 0.25),
+    inset -2px 0 4px 0 rgba(92, 92, 92, 0.25),
+    1px 4px 0 0 rgba(0, 0, 0, 0.5);
+  background: #fcfcfc;
+  padding: 8px 17px;
+
+  font-weight: 400;
+  font-size: 48px;
+  text-align: center;
+  color: #5c5c5c;
+  text-shadow:
+    1px 1px 0 rgba(0, 0, 0, 0.15),
+    1px 1px 0 rgba(255, 255, 255, 0.35);
+
+  button {
+    padding: 0;
+    margin-top: 5px;
+    font-family: 'PongGame';
+    font-weight: 400;
+    font-size: 48px;
+    text-align: center;
+    color: #5c5c5c;
+    text-shadow:
+      1px 1px 0 rgba(0, 0, 0, 0.15),
+      1px 1px 0 rgba(255, 255, 255, 0.35);
+  }
+}
+
+.settingsSlots {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: auto;
+  max-height: 433px;
+  gap: 20px;
+  padding: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.35);
+  border-radius: 65px;
+  background: #f5f5f5;
+  max-width: 796px;
+  margin: auto;
+
+  &::-webkit-scrollbar {
+    width: 24px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #8e8e8e;
+    border: #f5f5f5 8px solid;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+    margin: 45px 0;
+  }
+}
+
+div .slotBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  p {
+    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+    color: #5c5c5c;
+    text-shadow:
+      1px 1px 0 rgba(255, 255, 255, 0.35),
+      1px 1px 0 rgba(0, 0, 0, 0.15);
+    margin: 0;
+  }
+
+  .switchBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    span {
+      font-family: var(--second-family);
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 156%;
+      letter-spacing: 0.02em;
+      text-transform: capitalize;
+      color: #5c5c5c;
+      text-shadow: inset 3px -2px 4px 0 rgba(103, 103, 103, 0.25);
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 62px;
+      height: 31px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, #5c5c5c 0%, #5c5c5c 100%),
+        linear-gradient(270deg, #868686 0%, #515151 100%);
+      transform: rotate(-180deg);
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+      border-radius: 34px;
+      border: 2px solid #868686;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: '';
+      height: 27px;
+      width: 27px;
+      left: -2px;
+      bottom: -2px;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.35);
+      background: linear-gradient(180deg, #ececec 0%, #c9c9c9 92.71%);
+      transform: rotate(-180deg);
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+      border-radius: 50%;
+      border: 2px solid #868686;
+    }
+
+    input:checked + .slider {
+      background: linear-gradient(180deg, #5c5c5c 0%, #5c5c5c 100%),
+        linear-gradient(270deg, #868686 0%, #515151 100%);
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(31px);
+      -ms-transform: translateX(31px);
+      transform: translateX(31px);
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.35);
+      background: linear-gradient(180deg, #ececec 0%, #c9c9c9 92.71%);
+    }
+  }
+}
+
+div .settingsButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 58px;
+  margin-top: 16px;
+
+  button {
+    border-radius: 10px;
+    padding: 10px 24px;
+    width: fit-content;
+    height: 55px;
+    font-family: 'PongGame';
+    font-weight: 400;
+    font-size: 36px;
+    color: #fff;
+    outline: none;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  &Reset {
+    box-shadow:
+      inset 3px -2px 4px 0 rgba(103, 103, 103, 0.25),
+      inset 0 4px 2px 0 rgba(255, 255, 255, 0.5),
+      inset 3px -2px 4px 0 rgba(144, 144, 144, 0.25),
+      inset -2px 0 4px 0 rgba(92, 92, 92, 0.25),
+      1px 4px 0 0 #690e02;
+    background: linear-gradient(180deg, #ff5b4e 0%, #7c120a 100%);
+  }
+  &Confirm {
+    box-shadow:
+      inset 3px -2px 4px 0 rgba(103, 103, 103, 0.25),
+      inset 0 4px 2px 0 rgba(255, 255, 255, 0.5),
+      inset 3px -2px 4px 0 rgba(144, 144, 144, 0.25),
+      inset -2px 0 4px 0 rgba(92, 92, 92, 0.25),
+      1px 4px 0 0 #245324;
+    background: linear-gradient(180deg, #53b333 0%, #244d16 100%);
+  }
+}
+
+div .closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 33px;
+  width: 60px;
+  height: 60px;
+  box-shadow:
+    inset 3px -2px 4px 0 rgba(103, 103, 103, 0.25),
+    inset 0 4px 2px 0 rgba(255, 255, 255, 0.5),
+    inset 3px -2px 4px 0 rgba(144, 144, 144, 0.25),
+    inset -2px 0 4px 0 rgba(92, 92, 92, 0.25);
+  background: #858585;
+  padding: 0;
+
+  img {
+    display: block;
+    width: 27px;
+    height: 27px;
+    margin: auto;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes entrance {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

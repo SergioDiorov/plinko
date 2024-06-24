@@ -16,29 +16,34 @@ import PlinkoHeader from 'src/components/PlinkoHeader/PlinkoHeader';
 import OthersOption from 'src/components/OthersOption/OthersOption';
 import RollsRemaining from 'src/components/RollsRemaining/RollsRemaining';
 import ScoreInfo from 'src/components/ScoreInfo/ScoreInfo';
-import { startGame, throwBall } from 'src/helpers/gameLogic';
+import FinalResultsModal from 'src/components/FinalResultsModal/FinalResultsModal';
+import SettingsModal from 'src/components/SettingsModal/SettingsModal';
+import { resetGame, startGame, throwBall } from 'src/helpers/gameLogic';
 import { countScore } from 'src/helpers/countScore';
+
+type GameDataType = { [key: number]: number[] };
+const initialGameData: GameDataType = {
+  1: [],
+  2: [],
+  3: [],
+  4: [],
+  5: [],
+  6: [],
+  7: [],
+  8: [],
+  9: [],
+};
 
 function GameTable() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [gameData, setGameData] = useState<{
-    [key: number]: number[];
-  }>({
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-    6: [],
-    7: [],
-    8: [],
-    9: [],
-  });
-  const [rollsLimit, setRollsLimit] = useState<number>(10);
+  const [gameData, setGameData] = useState<GameDataType>(initialGameData);
+  const [rollsLimit, setRollsLimit] = useState<number>(5);
   const [othersSlotNumbers, setOthersSlotNumbers] = useState<number[]>([4, 6]);
   const [ballsThrown, setBallsThrown] = useState<number>(0);
   const [ourTeamScore, setOurTeamScore] = useState<number>(0);
   const [othersTeamScore, setOthersTeamScore] = useState<number>(0);
+  const [openFinalResults, setOpenFinalResults] = useState<boolean>(false);
+  const [openSettingsModal, setOpenSettingsModal] = useState<boolean>(false);
 
   const [showBall, setShowBall] = useState<boolean>(false);
   const [ballPosition, setBallPosition] = useState<number>(1);
@@ -60,6 +65,44 @@ function GameTable() {
     });
   };
 
+  const handleRemoveCanvasElements = () => {
+    const canvases = document.querySelectorAll('canvas');
+    canvases.forEach((canvas) => canvas.remove());
+
+    const canvas =
+      containerRef.current && containerRef.current.querySelectorAll('canvas');
+
+    if (containerRef.current && canvas?.length === 0) {
+      startGame(containerRef.current, handleGameDataUpdate);
+    }
+  };
+
+  const handleCloseFinalResults = () => {
+    setRollsLimit(5);
+    setOpenFinalResults(false);
+    setBallsThrown(0);
+    setOurTeamScore(0);
+    setOthersTeamScore(0);
+    setShowBall(false);
+    resetGame();
+    handleRemoveCanvasElements();
+    setGameData(initialGameData);
+  };
+
+  const handleSpanClick = (id: number) => {
+    if (showBall) {
+      setBallPosition(id);
+      const spanElement = document.getElementById(id.toString());
+      if (spanElement) {
+        const spanRect = spanElement.getBoundingClientRect();
+
+        const containerRect = containerRef.current?.getBoundingClientRect();
+        if (containerRect)
+          setBallStyleLeft(`${spanRect.left - containerRect.left - 10}px`);
+      }
+    }
+  };
+
   const addBall = () => {
     if (rollsLimit > ballsThrown) {
       setShowBall((prev) => !prev);
@@ -79,6 +122,14 @@ function GameTable() {
     const { ourTeam, othersTeam } = countScore({ gameData, othersSlotNumbers });
     setOurTeamScore(ourTeam);
     setOthersTeamScore(othersTeam);
+
+    if (
+      Object.values(gameData).flat().length === rollsLimit &&
+      ballsThrown === rollsLimit
+    ) {
+      setOpenFinalResults(true);
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameData]);
 
@@ -144,14 +195,34 @@ function GameTable() {
   }, [ballPosition, showBall]);
   return (
     <div>
+      <FinalResultsModal
+        ourTeamScore={ourTeamScore}
+        othersTeamScore={othersTeamScore}
+        open={openFinalResults}
+        handleClose={handleCloseFinalResults}
+      />
+
+      <SettingsModal
+        open={openSettingsModal}
+        handleClose={() => setOpenSettingsModal(false)}
+        checkedSlots={othersSlotNumbers}
+        setSlotChecked={setOthersSlotNumbers}
+        rollsRemaining={rollsLimit}
+        setRollsRemaining={setRollsLimit}
+        resetScore={() => {
+          handleCloseFinalResults();
+          setOthersSlotNumbers([4, 6]);
+        }}
+      />
+
       <div className={styles.rollsRemaining}>
         <RollsRemaining rollsRemaining={rollsLimit - ballsThrown} />
       </div>
-
       <div className={styles.setingsImage}>
-        <img src={Settings} alt='' />
+        <button onClick={() => setOpenSettingsModal(true)}>
+          <img src={Settings} alt='' />
+        </button>
       </div>
-
       <img
         src={ColourfulBG}
         className={`${styles.centerImage} ${styles.colourfulBG}`}
@@ -184,15 +255,16 @@ function GameTable() {
               <img src={Ball} alt='Ball' />
             </span>
           )}
-          <span id={'1'}>1</span>
-          <span id={'2'}>2</span>
-          <span id={'3'}>3</span>
-          <span id={'4'}>4</span>
-          <span id={'5'}>5</span>
-          <span id={'6'}>6</span>
-          <span id={'7'}>7</span>
-          <span id={'8'}>8</span>
-          <span id={'9'}>9</span>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => (
+            <span
+              key={number}
+              id={number.toString()}
+              onClick={() => handleSpanClick(number)}
+              style={{ cursor: showBall ? 'pointer' : 'default' }}
+            >
+              {number}
+            </span>
+          ))}
         </div>
         <img
           src={LeftWall}

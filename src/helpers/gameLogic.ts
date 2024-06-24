@@ -1,4 +1,4 @@
-import Matter, { Engine, Render, Runner, Bodies, Composite, Events, IBodyDefinition } from "matter-js";
+import Matter, { Engine, Render, Runner, Bodies, Composite, Events, IBodyDefinition, World } from "matter-js";
 
 let engine: Matter.Engine;
 let render: Matter.Render;
@@ -285,4 +285,40 @@ export const throwBall = ({ x, y }: { x: number, y: number }) => {
 
     Render.run(render);
   }
+}
+
+// Reset game function
+export function resetGame() {
+  // Stop the runner (stops the engine)
+  Runner.stop(runner);
+
+  // Clear the engine (removes all bodies and constraints from the world)
+  World.clear(engine.world, false);
+
+  // Clear transparent squares array
+  transparentSquares = [];
+
+  // Clear column positions array
+  columnPositions = [];
+
+  // Clear ball count
+  ballCount = 0;
+
+  // Remove collision event listeners
+  // Events.off(engine, 'collisionStart', handleCollisionStart);
+
+  // Clear element rectangle
+  // elementRect = null;
+
+  // Destroy the renderer
+  if (render) {
+    Render.stop(render);
+    Render.run(render);
+  }
+
+  // Recreate engine
+  engine = Engine.create();
+
+  // Recreate runner
+  runner = Runner.create();
 }
