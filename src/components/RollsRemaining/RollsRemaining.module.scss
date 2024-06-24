@@ -11,6 +11,10 @@ div .rollsRemainingContainer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 1130px) {
+    width: 250px;
+  }
 }
 
 div .text {
@@ -26,6 +30,10 @@ div .text {
     inset -2px 0 4px rgba(166, 98, 39, 0.25),
     0 4px 4px rgba(0, 0, 0, 0.25),
     -3px 2px 0 #bd4036;
+
+  @media (max-width: 1130px) {
+    font-size: 26px;
+  }
 
   &Number {
     font-size: 48px;

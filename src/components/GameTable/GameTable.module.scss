@@ -22,6 +22,11 @@ div .rollsRemaining {
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 1;
+
+  @media (max-width: 870px) {
+    z-index: 0;
+  }
 }
 
 div .setingsImage {
@@ -46,9 +51,17 @@ div .score {
 
   &Left {
     left: -325px;
+
+    @media (max-width: 1130px) {
+      left: -245px;
+    }
   }
   &Right {
     right: -325px;
+
+    @media (max-width: 1130px) {
+      right: -245px;
+    }
   }
 }
 
