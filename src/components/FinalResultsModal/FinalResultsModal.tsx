@@ -27,8 +27,11 @@ const FinalResultsModal: FC<FinalResultsProps> = ({
           <ScoreInfo title='OUR TEAM' score={ourTeamScore} />
           <ScoreInfo title='OTHER TEAMS' score={othersTeamScore} />
         </div>
-        <button onClick={handleClose}>
+        {/* <button onClick={handleClose}>
           <img src={DoneButton} alt='DoneButton' />
+        </button> */}
+        <button className={styles.settingsButtonsConfirm} onClick={handleClose}>
+          Save
         </button>
       </div>
       <div className={styles.finalResultsBackground}></div>

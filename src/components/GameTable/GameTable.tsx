@@ -10,6 +10,7 @@ import Board from 'src/assets/Board.png';
 import Scores from 'src/assets/Scores.png';
 import Ball from 'src/assets/Ball.png';
 import Settings from 'src/assets/Settings.png';
+import plinkoSoundEffect from 'src/assets/audio/PlinkoSoundEffect.mp3';
 
 import styles from './GameTable.module.scss';
 import PlinkoHeader from 'src/components/PlinkoHeader/PlinkoHeader';
@@ -103,9 +104,37 @@ function GameTable() {
     }
   };
 
+  const handleThrowBall = () => {
+    const ballElement = document
+      .getElementById('ball')
+      ?.getBoundingClientRect();
+    const containerRect = containerRef.current?.getBoundingClientRect();
+
+    setShowBall(false);
+    setBallPosition(1);
+    setBallStyleLeft(null);
+
+    if (ballElement && containerRect) {
+      throwBall({
+        x: ballElement.left - containerRect.left + 17,
+        y: ballElement.top - containerRect.top + 17,
+      });
+      setBallsThrown((prev) => ++prev);
+    }
+  };
+
+  const handlePlayAudio = () => {
+    const audio = new Audio(plinkoSoundEffect);
+    audio.play();
+  };
+
   const addBall = () => {
     if (rollsLimit > ballsThrown) {
-      setShowBall((prev) => !prev);
+      if (showBall) {
+        handleThrowBall();
+      } else {
+        setShowBall((prev) => !prev);
+      }
     }
   };
 
@@ -122,6 +151,10 @@ function GameTable() {
     const { ourTeam, othersTeam } = countScore({ gameData, othersSlotNumbers });
     setOurTeamScore(ourTeam);
     setOthersTeamScore(othersTeam);
+
+    if (Object.values(gameData).flat().length !== 0) {
+      handlePlayAudio();
+    }
 
     if (
       Object.values(gameData).flat().length === rollsLimit &&
@@ -163,22 +196,7 @@ function GameTable() {
 
         case 'Enter':
           if (showBall) {
-            const ballElement = document
-              .getElementById('ball')
-              ?.getBoundingClientRect();
-            const containerRect = containerRef.current?.getBoundingClientRect();
-
-            setShowBall(false);
-            setBallPosition(1);
-            setBallStyleLeft(null);
-
-            if (ballElement && containerRect) {
-              throwBall({
-                x: ballElement.left - containerRect.left + 17,
-                y: ballElement.top - containerRect.top + 17,
-              });
-              setBallsThrown((prev) => ++prev);
-            }
+            handleThrowBall();
           }
           break;
 

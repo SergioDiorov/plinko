@@ -31,8 +31,8 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
       wireframes: false,
       width: worldWidth,
       height: worldHeight,
-      showAngleIndicator: true,
-      showBounds: true,
+      showAngleIndicator: false,
+      showBounds: false,
       pixelRatio: 1.5,
     },
   });
