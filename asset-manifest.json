@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/plinko/static/css/main.04600df9.css",
-    "main.js": "/plinko/static/js/main.e7835212.js",
+    "main.css": "/plinko/static/css/main.b5081a83.css",
+    "main.js": "/plinko/static/js/main.be091361.js",
     "static/js/453.f613c9eb.chunk.js": "/plinko/static/js/453.f613c9eb.chunk.js",
     "static/media/ColourfulBG.png": "/plinko/static/media/ColourfulBG.973c4c261e143ccc9e61.png",
     "static/media/ResultsBackground.png": "/plinko/static/media/ResultsBackground.4ad34c0b9384018c526e.png",
     "static/media/BoardDots.png": "/plinko/static/media/BoardDots.2524e64d2d5c3667d5fc.png",
     "static/media/Frame.png": "/plinko/static/media/Frame.dbd3dfd21ae8e4c6fdd8.png",
     "static/media/BlueBackground.png": "/plinko/static/media/BlueBackground.2c60c6a77a774ec4db6d.png",
+    "static/media/PlinkoSoundEffect.mp3": "/plinko/static/media/PlinkoSoundEffect.8c6ba055708c312bfbed.mp3",
     "static/media/fonnts.com-Pong-Game.otf": "/plinko/static/media/fonnts.com-Pong-Game.bdb9600040663d0778a6.otf",
     "static/media/Scores.png": "/plinko/static/media/Scores.4acb32f573eaa289a305.png",
     "static/media/PlinkoLogo.png": "/plinko/static/media/PlinkoLogo.4e05e4eac244b830a679.png",
@@ -20,12 +21,12 @@
     "static/media/fonnts.com-Pong-Game.ttf": "/plinko/static/media/fonnts.com-Pong-Game.0d2c8068e8e1be786ab8.ttf",
     "static/media/PointLines.png": "/plinko/static/media/PointLines.1e4ad5fc4a001f12c6fd.png",
     "index.html": "/plinko/index.html",
-    "main.04600df9.css.map": "/plinko/static/css/main.04600df9.css.map",
-    "main.e7835212.js.map": "/plinko/static/js/main.e7835212.js.map",
+    "main.b5081a83.css.map": "/plinko/static/css/main.b5081a83.css.map",
+    "main.be091361.js.map": "/plinko/static/js/main.be091361.js.map",
     "453.f613c9eb.chunk.js.map": "/plinko/static/js/453.f613c9eb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.04600df9.css",
-    "static/js/main.e7835212.js"
+    "static/css/main.b5081a83.css",
+    "static/js/main.be091361.js"
   ]
 }
