@@ -1,0 +1,83 @@
+div .finalResultsWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9;
+}
+
+div .finalResultsBackground {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10.199999809265137px);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  animation: show 0.5s cubic-bezier(0.11, 0, 0.5, 0) 1.5s 1 normal forwards;
+  opacity: 0;
+}
+
+div .finalResultsModal {
+  position: absolute;
+  z-index: 11;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url('../../assets/ResultsBackground.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: entrance 0.5s cubic-bezier(0.42, 0, 0.57, 1.27) 1.5s 1 normal
+    forwards;
+  opacity: 0;
+
+  button {
+    opacity: 1;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+}
+
+div .score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  margin-bottom: 11px;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes entrance {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

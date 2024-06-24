@@ -169,6 +169,7 @@ div .numbers {
   justify-content: space-between;
   width: 100%;
   padding: 0px 34px;
+  z-index: 10;
 
   .ball {
     position: absolute;
@@ -182,5 +183,6 @@ div .numbers {
     font-size: 28px;
     text-align: center;
     color: #d4b291;
+    padding: 0;
   }
 }
