@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/plinko/static/css/main.fd0257ba.css",
-    "main.js": "/plinko/static/js/main.8db093a8.js",
+    "main.js": "/plinko/static/js/main.26b52f2e.js",
     "static/js/453.f613c9eb.chunk.js": "/plinko/static/js/453.f613c9eb.chunk.js",
     "static/media/ColourfulBG.png": "/plinko/static/media/ColourfulBG.973c4c261e143ccc9e61.png",
     "static/media/ResultsBackground.png": "/plinko/static/media/ResultsBackground.4ad34c0b9384018c526e.png",
@@ -21,11 +21,11 @@
     "static/media/PointLines.png": "/plinko/static/media/PointLines.1e4ad5fc4a001f12c6fd.png",
     "index.html": "/plinko/index.html",
     "main.fd0257ba.css.map": "/plinko/static/css/main.fd0257ba.css.map",
-    "main.8db093a8.js.map": "/plinko/static/js/main.8db093a8.js.map",
+    "main.26b52f2e.js.map": "/plinko/static/js/main.26b52f2e.js.map",
     "453.f613c9eb.chunk.js.map": "/plinko/static/js/453.f613c9eb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fd0257ba.css",
-    "static/js/main.8db093a8.js"
+    "static/js/main.26b52f2e.js"
   ]
 }
