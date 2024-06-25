@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 
 import styles from './SettingsModal.module.scss';
 import XMark from 'src/assets/XMark.png';
-import { slots } from 'src/constants/constants';
+// import { slots } from 'src/constants/constants';
 
 interface SettingsModalProps {
   open: boolean;
@@ -12,6 +12,8 @@ interface SettingsModalProps {
   rollsRemaining: number;
   setRollsRemaining: (param: number) => void;
   resetScore: () => void;
+  slotsData: { [key: number]: number };
+  setSlotsData: (param: { [key: number]: number }) => void;
 }
 
 const SettingsModal: FC<SettingsModalProps> = ({
@@ -22,11 +24,16 @@ const SettingsModal: FC<SettingsModalProps> = ({
   rollsRemaining,
   setRollsRemaining,
   resetScore,
+  slotsData,
+  setSlotsData,
 }) => {
   const [tempRollsRemaining, setTempRollsRemaining] =
     useState<number>(rollsRemaining);
   const [tempSlotsChecked, setTempSlotsChecked] =
     useState<number[]>(checkedSlots);
+  const [tempSlotsData, setTempSlotsData] = useState<{ [key: number]: number }>(
+    slotsData,
+  );
 
   const handleCheck = (slotNumber: number) => {
     if (tempSlotsChecked.includes(slotNumber)) {
@@ -53,17 +60,32 @@ const SettingsModal: FC<SettingsModalProps> = ({
     if (JSON.stringify(tempSlotsChecked) !== JSON.stringify(checkedSlots)) {
       setSlotChecked(tempSlotsChecked);
     }
+    if (JSON.stringify(tempSlotsData) !== JSON.stringify(slotsData)) {
+      setSlotsData(tempSlotsData);
+    }
+
     handleClose();
   };
 
   const handleCloseModal = () => {
     setTempRollsRemaining(rollsRemaining);
     setTempSlotsChecked(checkedSlots);
+    setTempSlotsData(slotsData);
     handleClose();
+  };
+
+  const handleSlotChange = (slotNumber: number, newValue: string) => {
+    const regex = /^-?\d*$/;
+
+    if (regex.test(newValue) && +newValue <= 999 && +newValue >= -999) {
+      const updatedSlots = { ...tempSlotsData, [slotNumber]: +newValue };
+      setTempSlotsData(updatedSlots);
+    }
   };
 
   useEffect(() => setTempRollsRemaining(rollsRemaining), [rollsRemaining]);
   useEffect(() => setTempSlotsChecked(checkedSlots), [checkedSlots]);
+  useEffect(() => setTempSlotsData(slotsData), [slotsData]);
 
   return (
     <div
@@ -82,11 +104,19 @@ const SettingsModal: FC<SettingsModalProps> = ({
             </div>
           </div>
           <div className={styles.settingsSlots}>
-            {Object.keys(slots).map((slot) => {
+            {Object.keys(tempSlotsData).map((slot) => {
               return (
                 <div className={styles.slotBlock} key={slot}>
                   <p>Slot{slot}</p>
-                  <div className={styles.infoBlock}>{slots[+slot]}</div>
+                  <div className={styles.infoBlock}>
+                    {/* {tempSlotsData[+slot]} */}
+                    <input
+                      type='number'
+                      value={tempSlotsData[+slot].toString()}
+                      onChange={(e) => handleSlotChange(+slot, e.target.value)}
+                    />
+                  </div>
+                  {/* <div className={styles.infoBlock}>{slotsData[+slot]}</div> */}
                   <div className={styles.switchBlock}>
                     <span>Us</span>
                     <label className={styles.switch}>

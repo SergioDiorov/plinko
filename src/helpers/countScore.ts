@@ -1,6 +1,4 @@
-import { slots } from "src/constants/constants";
-
-export const countScore = ({ gameData, othersSlotNumbers }: { gameData: { [key: number]: number[] }, othersSlotNumbers: number[] }) => {
+export const countScore = ({ gameData, othersSlotNumbers, slotsData }: { gameData: { [key: number]: number[] }, othersSlotNumbers: number[], slotsData: { [key: number]: number } }) => {
   let ourTeam = 0;
   let othersTeam = 0;
 
@@ -8,9 +6,9 @@ export const countScore = ({ gameData, othersSlotNumbers }: { gameData: { [key: 
     const slot = parseInt(slotKey);
     const ballsInSlot = gameData[slot].length;
     if (othersSlotNumbers.includes(slot)) {
-      othersTeam += ballsInSlot * slots[slot];
+      othersTeam += ballsInSlot * slotsData[slot];
     } else {
-      ourTeam += ballsInSlot * slots[slot];
+      ourTeam += ballsInSlot * slotsData[slot];
     }
   })
 

@@ -7,7 +7,6 @@ import RightWall from 'src/assets/RightWall.png';
 import PointLines from 'src/assets/PointLines.png';
 import BoardDots from 'src/assets/BoardDots.png';
 import Board from 'src/assets/Board.png';
-import Scores from 'src/assets/Scores.png';
 import Ball from 'src/assets/Ball.png';
 import Settings from 'src/assets/Settings.png';
 import plinkoSoundEffect from 'src/assets/audio/PlinkoSoundEffect.mp3';
@@ -19,8 +18,10 @@ import RollsRemaining from 'src/components/RollsRemaining/RollsRemaining';
 import ScoreInfo from 'src/components/ScoreInfo/ScoreInfo';
 import FinalResultsModal from 'src/components/FinalResultsModal/FinalResultsModal';
 import SettingsModal from 'src/components/SettingsModal/SettingsModal';
+import ScoresBlock from 'src/components/ScoresBlock/ScoresBlock';
 import { resetGame, startGame, throwBall } from 'src/helpers/gameLogic';
 import { countScore } from 'src/helpers/countScore';
+import { slots } from 'src/constants/constants';
 
 type GameDataType = { [key: number]: number[] };
 const initialGameData: GameDataType = {
@@ -45,6 +46,7 @@ function GameTable() {
   const [othersTeamScore, setOthersTeamScore] = useState<number>(0);
   const [openFinalResults, setOpenFinalResults] = useState<boolean>(false);
   const [openSettingsModal, setOpenSettingsModal] = useState<boolean>(false);
+  const [slotsData, setSlotsData] = useState<{ [key: number]: number }>(slots);
 
   const [showBall, setShowBall] = useState<boolean>(false);
   const [ballPosition, setBallPosition] = useState<number>(1);
@@ -74,7 +76,8 @@ function GameTable() {
       containerRef.current && containerRef.current.querySelectorAll('canvas');
 
     if (containerRef.current && canvas?.length === 0) {
-      startGame(containerRef.current, handleGameDataUpdate);
+      const smallScreen = document.documentElement.offsetHeight < 1000;
+      startGame(containerRef.current, handleGameDataUpdate, smallScreen);
     }
   };
 
@@ -115,9 +118,11 @@ function GameTable() {
     setBallStyleLeft(null);
 
     if (ballElement && containerRect) {
+      const smallScreen = document.documentElement.offsetHeight < 1000;
       throwBall({
         x: ballElement.left - containerRect.left + 17,
         y: ballElement.top - containerRect.top + 17,
+        smallScreen,
       });
       setBallsThrown((prev) => ++prev);
     }
@@ -143,12 +148,17 @@ function GameTable() {
       containerRef.current && containerRef.current.querySelectorAll('canvas');
 
     if (containerRef.current && canvas?.length === 0) {
-      startGame(containerRef.current, handleGameDataUpdate);
+      const smallScreen = document.documentElement.offsetHeight < 1000;
+      startGame(containerRef.current, handleGameDataUpdate, smallScreen);
     }
   }, [containerRef]);
 
   useEffect(() => {
-    const { ourTeam, othersTeam } = countScore({ gameData, othersSlotNumbers });
+    const { ourTeam, othersTeam } = countScore({
+      gameData,
+      othersSlotNumbers,
+      slotsData,
+    });
     setOurTeamScore(ourTeam);
     setOthersTeamScore(othersTeam);
 
@@ -230,7 +240,10 @@ function GameTable() {
         resetScore={() => {
           handleCloseFinalResults();
           setOthersSlotNumbers([4, 6]);
+          setSlotsData(slots);
         }}
+        slotsData={slotsData}
+        setSlotsData={setSlotsData}
       />
 
       <div className={styles.rollsRemaining}>
@@ -259,7 +272,6 @@ function GameTable() {
         <div className={`${styles.score} ${styles.scoreRight}`}>
           <ScoreInfo title='OTHER TEAMS' score={othersTeamScore} />
         </div>
-
         <div className={styles.numbers}>
           {showBall && (
             <span
@@ -296,7 +308,7 @@ function GameTable() {
         />
         <img src={PointLines} className={` ${styles.pointLines}`} alt='' />
         <img src={BoardDots} className={` ${styles.boardDots}`} alt='' />
-        <img src={Scores} className={` ${styles.scores}`} alt='' />
+        <ScoresBlock slotsData={slotsData} />
         <OthersOption othersSlotNumbers={othersSlotNumbers} />
         <img src={Board} className={` ${styles.boardBackground}`} alt='' />
       </div>

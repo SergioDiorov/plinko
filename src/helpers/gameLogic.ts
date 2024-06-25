@@ -1,4 +1,4 @@
-import Matter, { Engine, Render, Runner, Bodies, Composite, Events, IBodyDefinition, World } from "matter-js";
+import Matter, { Engine, Render, Runner, Bodies, Composite, Events, IBodyDefinition, World, Body } from "matter-js";
 
 let engine: Matter.Engine;
 let render: Matter.Render;
@@ -9,7 +9,7 @@ let transparentSquares: Matter.Body[];
 let elementRect: DOMRect;
 
 // Start game function
-export function startGame(element: any, onGameDataUpdate: (ballNumber: number, squareIndex: number) => void) {
+export function startGame(element: any, onGameDataUpdate: (ballNumber: number, squareIndex: number) => void, smallScreen: boolean) {
   elementRect = element.getBoundingClientRect();
 
   const worldWidth = elementRect.width;
@@ -42,20 +42,36 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
   let linePins = 8;
 
   for (let l = 0; l < pinLines; l++) {
-    const lineWidth = linePins * pinGap;
+    const lineWidth = smallScreen ? linePins * (pinGap - 10) : linePins * pinGap;
+
     for (let i = 0; i < linePins; i++) {
-      const pin = Bodies.circle(
-        (worldWidth + 48.4) / 2 - lineWidth / 2 + i * pinGap,
-        100 + l * (pinGap - 7.4),
-        pinSize,
-        {
-          isStatic: true,
-          render: {
-            visible: false,
-          }
-        },
-      );
-      pins.push(pin);
+      if (smallScreen) {
+        const pin = Bodies.circle(
+          (worldWidth + 19) / 2 - lineWidth / 2 + i * (pinGap - 6.8),
+          178 + l * (pinGap - 12.8),
+          (pinSize - 1.2),
+          {
+            isStatic: true,
+            render: {
+              visible: false,
+            }
+          },
+        );
+        pins.push(pin);
+      } else {
+        const pin = Bodies.circle(
+          (worldWidth + 48.4) / 2 - lineWidth / 2 + i * pinGap,
+          100 + l * (pinGap - 7.4),
+          pinSize,
+          {
+            isStatic: true,
+            render: {
+              visible: false,
+            }
+          },
+        );
+        pins.push(pin);
+      }
     }
 
     linePins = l % 2 === 0 ? 7 : 8;
@@ -64,46 +80,89 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
 
   // Create left side triangles
   for (let l = 0; l < pinLines; l++) {
-    if (l % 2 === 1) {
-      const triangle = Bodies.polygon(
-        triangleSize / 2, 100 + l * (pinGap - 7),
-        3, triangleSize,
-        {
-          isStatic: true,
-          restitution: 1,
-          friction: 0,
-          angle: 45,
-          render: {
-            visible: false,
+    if (smallScreen) {
+      if (l % 2 === 1) {
+        const triangle = Bodies.polygon(
+          triangleSize / 2, 180 + l * (pinGap - 13.5),
+          3, (triangleSize - 5),
+          {
+            isStatic: true,
+            restitution: 1,
+            friction: 0,
+            angle: 45,
+            render: {
+              visible: false,
+            },
           },
-        },
-      );
+        );
 
-      triangle.vertices[2].x -= triangleSize / 1;
+        triangle.vertices[2].x -= triangleSize / 1;
 
-      Composite.add(engine.world, triangle);
+        Composite.add(engine.world, triangle);
+      }
+    } else {
+      if (l % 2 === 1) {
+        const triangle = Bodies.polygon(
+          triangleSize / 2, 100 + l * (pinGap - 7),
+          3, triangleSize,
+          {
+            isStatic: true,
+            restitution: 2,
+            friction: 0,
+            angle: 45,
+            render: {
+              visible: false,
+            },
+          },
+        );
+
+        triangle.vertices[2].x -= triangleSize / 1;
+
+        Composite.add(engine.world, triangle);
+      }
     }
   }
 
   // Create right side triangles
   for (let l = 0; l < pinLines; l++) {
-    if (l % 2 === 1) {
-      const triangle = Bodies.polygon(
-        worldWidth - triangleSize / 2, 100 + l * (pinGap - 7),
-        3, triangleSize,
-        {
-          isStatic: true,
-          restitution: 1,
-          friction: 0,
-          render: {
-            visible: false,
+    if (smallScreen) {
+      if (l % 2 === 1) {
+        const triangle = Bodies.polygon(
+          worldWidth - triangleSize / 2, 180 + l * (pinGap - 13.5),
+          3, (triangleSize - 5.5),
+          {
+            isStatic: true,
+            restitution: 1,
+            friction: 0,
+            render: {
+              visible: false,
+            },
           },
-        },
-      );
+        );
 
-      triangle.vertices[1].x += triangleSize / 1;
+        triangle.vertices[1].x += triangleSize / 1;
 
-      Composite.add(engine.world, triangle);
+        Composite.add(engine.world, triangle);
+      }
+    } else {
+      if (l % 2 === 1) {
+        const triangle = Bodies.polygon(
+          worldWidth - triangleSize / 2, 100 + l * (pinGap - 7),
+          3, triangleSize,
+          {
+            isStatic: true,
+            restitution: 2,
+            friction: 0,
+            render: {
+              visible: false,
+            },
+          },
+        );
+
+        triangle.vertices[1].x += triangleSize / 1;
+
+        Composite.add(engine.world, triangle);
+      }
     }
   }
 
@@ -111,7 +170,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
   const leftWall = Bodies.rectangle(
     0,
     worldHeight / 2,
-    10,
+    smallScreen ? 12 : 10,
     worldHeight,
     {
       isStatic: true,
@@ -126,7 +185,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
   const rightWall = Bodies.rectangle(
     worldWidth,
     worldHeight / 2,
-    10,
+    smallScreen ? 12 : 10,
     worldHeight,
     {
       isStatic: true,
@@ -148,26 +207,44 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
   const initialX = (worldWidth - (columnWidth * 8 + columnGap * 7)) / 2 + columnWidth / 2;
 
   for (let i = 0; i < 8; i++) {
-    const columnX = initialX + i * (columnWidth + columnGap);
-    const column = Bodies.rectangle(
-      columnX, // Position X
-      worldHeight - columnHeight / 2, // Position Y
-      columnWidth, columnHeight, // width and height
-      {
-        isStatic: true,
-        render: {
-          visible: false,
+    if (smallScreen) {
+      const columnX = initialX + i * (columnWidth + columnGap);
+      const column = Bodies.rectangle(
+        columnX, // Position X
+        worldHeight - columnHeight / 2, // Position Y
+        (columnWidth - 1), (columnHeight - 8), // width and height
+        {
+          isStatic: true,
+          restitution: 0.5,
+          render: {
+            visible: false,
+          },
         },
-      },
-    );
-    Composite.add(engine.world, column);
-    columnPositions.push(columnX);
+      );
+      Composite.add(engine.world, column);
+      columnPositions.push(columnX);
+    } else {
+      const columnX = initialX + i * (columnWidth + columnGap);
+      const column = Bodies.rectangle(
+        columnX, // Position X
+        worldHeight - columnHeight / 2, // Position Y
+        columnWidth, columnHeight, // width and height
+        {
+          isStatic: true,
+          render: {
+            visible: false,
+          },
+        },
+      );
+      Composite.add(engine.world, column);
+      columnPositions.push(columnX);
+    }
   }
 
   transparentSquares = [];
 
   // Adding transparent squares between columns to check for balls
-  const squareSize = 44; // Size of transparent square
+  const squareSize = smallScreen ? 38 : 44; // Size of transparent square
   const firstTransparentSquare = Bodies.rectangle(
     columnPositions[0] - columnWidth / 2 - squareSize / 2,
     (worldHeight + 45) - columnHeight - squareSize / 2,
@@ -257,24 +334,41 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
           ballNumber && onGameDataUpdate(ballNumber, transparentSquareIndex);
         }
       });
+
+      pins.forEach((pin) => {
+        if (bodyA === pin) {
+          applyRandomForce(bodyB);
+        } else if (bodyB === pin) {
+          applyRandomForce(bodyA);
+        }
+      });
     });
+  }
+
+  function applyRandomForce(body: Matter.Body) {
+    const randomForceX = (Math.random() - 0.5) * 0.03;
+    const randomForceY = -1 * (Math.random() * 0.03 + 0.02);
+
+    Body.applyForce(body, body.position, { x: randomForceX, y: randomForceY });
   }
 }
 
 // Throw Ball function
-export const throwBall = ({ x, y }: { x: number, y: number }) => {
-  const ballSize = 12;
-  const ballElastity = 0.75;
+export const throwBall = ({ x, y, smallScreen }: { x: number, y: number, smallScreen?: boolean }) => {
+  const ballSize = smallScreen ? 10 : 12;
+  const ballElastity = 0.6;
 
   if (x > 0 && y > 0) {
+    const randomX = x + (Math.random() - 0.5) * 17;
+
     const distances = columnPositions.map((columnX, index) => ({
-      distance: Math.abs(x - columnX),
+      distance: Math.abs(randomX - columnX),
       interval: index + 1,
     }));
 
     distances.sort((a, b) => a.distance - b.distance);
 
-    const newBall = Bodies.circle(x, y, ballSize, {
+    const newBall = Bodies.circle(randomX, y, ballSize, {
       restitution: ballElastity,
       render: {
         fillStyle: '#EE3F7F',
@@ -282,6 +376,10 @@ export const throwBall = ({ x, y }: { x: number, y: number }) => {
       ballNumber: ++ballCount,
     } as Partial<IBodyDefinition> & { ballNumber?: number });
     Composite.add(engine.world, [newBall]);
+
+    const randomForceX = (Math.random() - 0.5) * 0.03;
+    const randomForceY = -1 * (Math.random() * 0.03 + 0.02);
+    Body.setVelocity(newBall, { x: randomForceX, y: randomForceY });
 
     Render.run(render);
   }
@@ -303,12 +401,6 @@ export function resetGame() {
 
   // Clear ball count
   ballCount = 0;
-
-  // Remove collision event listeners
-  // Events.off(engine, 'collisionStart', handleCollisionStart);
-
-  // Clear element rectangle
-  // elementRect = null;
 
   // Destroy the renderer
   if (render) {
