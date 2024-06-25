@@ -31,7 +31,7 @@ const FinalResultsModal: FC<FinalResultsProps> = ({
           <img src={DoneButton} alt='DoneButton' />
         </button> */}
         <button className={styles.settingsButtonsConfirm} onClick={handleClose}>
-          Save
+          Done
         </button>
       </div>
       <div className={styles.finalResultsBackground}></div>
