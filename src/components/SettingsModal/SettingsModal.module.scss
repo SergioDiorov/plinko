@@ -111,6 +111,29 @@ div .infoBlock {
     1px 1px 0 rgba(0, 0, 0, 0.15),
     1px 1px 0 rgba(255, 255, 255, 0.35);
 
+  input {
+    width: -webkit-fill-available;
+    outline: none;
+    border: none;
+    background: transparent;
+    height: -webkit-fill-available;
+    font-weight: 400;
+    font-size: 48px;
+    text-align: center;
+    color: #5c5c5c;
+    text-shadow:
+      1px 1px 0 rgba(0, 0, 0, 0.15),
+      1px 1px 0 rgba(255, 255, 255, 0.35);
+    font-family: 'PongGame';
+    text-align: left;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
   button {
     padding: 0;
     margin-top: 5px;

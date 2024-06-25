@@ -11,11 +11,20 @@ div .centerImage {
 
 div .colourfulBG {
   max-width: 770px;
+
+  @media (max-height: 1000px) {
+    max-width: 667px;
+  }
 }
 
 div .frame {
   max-width: 815px;
   max-height: 925px;
+
+  @media (max-height: 1000px) {
+    max-width: 703px;
+    max-height: 807px;
+  }
 }
 
 div .rollsRemaining {
@@ -81,6 +90,11 @@ div .board {
   align-items: center;
   transform: translate(-50%, -50%);
 
+  @media (max-height: 1000px) {
+    max-width: 405px;
+    top: 40.6%;
+  }
+
   canvas {
     z-index: 9;
   }
@@ -90,6 +104,9 @@ div .wall {
   position: absolute;
   bottom: 95px;
   z-index: 99;
+  @media (max-height: 1000px) {
+    width: 27px;
+  }
 
   &Left {
     left: 0;
@@ -102,18 +119,29 @@ div .pointLines {
   position: absolute;
   bottom: 0px;
   z-index: 99;
+  @media (max-height: 1000px) {
+    width: 327px;
+  }
 }
 
 div .boardDots {
   position: absolute;
   bottom: 90px;
   z-index: 99;
+
+  @media (max-height: 1000px) {
+    width: 320px;
+    bottom: 80px;
+  }
 }
 
 div .boardBackground {
   position: absolute;
   bottom: 0px;
   z-index: 1;
+  @media (max-height: 1000px) {
+    width: 412px;
+  }
 }
 
 div .scores {
@@ -122,6 +150,7 @@ div .scores {
   left: -15px;
   z-index: 9;
 }
+
 div .others {
   position: absolute;
   z-index: 9;
@@ -176,7 +205,6 @@ div .others {
 
 div .numbers {
   position: absolute;
-  z-index: 5;
   top: 58px;
   display: flex;
   justify-content: space-between;
@@ -184,11 +212,22 @@ div .numbers {
   padding: 0px 34px;
   z-index: 10;
 
+  @media (max-height: 1000px) {
+    top: 135px;
+    padding: 0px 25px;
+  }
+
   .ball {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
+    img {
+      @media (max-height: 1000px) {
+        width: 28px;
+        margin: 3px;
+      }
+    }
   }
 
   span {

@@ -1,0 +1,268 @@
+div .scores {
+  &Container {
+    position: absolute;
+    z-index: 9;
+    bottom: -20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 48px;
+    color: #fff;
+    text-shadow:
+      -1px 0px 0px rgba(0, 0, 0, 0.25),
+      -2px 0px 0 rgba(0, 0, 0, 0.15),
+      0px 0px 1px rgba(255, 255, 255, 0.25);
+
+    @media (max-height: 1000px) {
+      bottom: -2%;
+      font-size: 38px;
+    }
+  }
+
+  &Span {
+    &1 {
+      position: absolute;
+      transform: rotate(-67deg);
+      &One {
+        top: -9px;
+        left: -2px;
+        @media (max-height: 1000px) {
+          top: -10px;
+          left: 2px;
+        }
+      }
+      &Two {
+        top: -5px;
+        left: -14px;
+        @media (max-height: 1000px) {
+          left: -7px;
+        }
+      }
+      &Three {
+        top: -5px;
+        left: -22px;
+        font-size: 44px;
+        @media (max-height: 1000px) {
+          left: -8px;
+          font-size: 36px;
+        }
+      }
+    }
+
+    &2 {
+      position: absolute;
+      top: 0;
+      transform: rotate(-75deg);
+      &One {
+        left: 46px;
+        @media (max-height: 1000px) {
+          top: -4px;
+          left: 46px;
+        }
+      }
+      &Two {
+        top: 6px;
+        left: 35px;
+        @media (max-height: 1000px) {
+          left: 30px;
+        }
+      }
+      &Three {
+        top: 0px;
+        left: 26px;
+        @media (max-height: 1000px) {
+          left: 24px;
+        }
+      }
+    }
+
+    &3 {
+      position: absolute;
+      top: 0;
+      transform: rotate(-75deg);
+      &One {
+        left: 100px;
+        @media (max-height: 1000px) {
+          left: 89px;
+          top: 3px;
+        }
+      }
+      &Two {
+        top: 8px;
+        left: 90px;
+        @media (max-height: 1000px) {
+          left: 79px;
+        }
+      }
+      &Three {
+        top: 8px;
+        left: 76px;
+        @media (max-height: 1000px) {
+          left: 69px;
+        }
+      }
+    }
+
+    &4 {
+      position: absolute;
+      top: 0;
+      transform: rotate(-82deg);
+      &One {
+        left: 153px;
+        @media (max-height: 1000px) {
+          left: 135px;
+          top: 6px;
+        }
+      }
+      &Two {
+        top: 10px;
+        left: 148px;
+        @media (max-height: 1000px) {
+          left: 125px;
+        }
+      }
+      &Three {
+        top: 10px;
+        left: 135px;
+        @media (max-height: 1000px) {
+          left: 118px;
+        }
+      }
+    }
+
+    &5 {
+      position: absolute;
+      transform: rotate(-90deg);
+      top: 0;
+      &One {
+        right: 212px;
+
+        @media (max-height: 1000px) {
+          right: 182px;
+          top: 8px;
+        }
+      }
+      &Two {
+        top: 12px;
+        right: 200px;
+        @media (max-height: 1000px) {
+          right: 172px;
+        }
+      }
+      &Three {
+        top: 12px;
+        right: 185px;
+        @media (max-height: 1000px) {
+          right: 164px;
+        }
+      }
+    }
+
+    &6 {
+      position: absolute;
+      top: 0;
+      transform: rotate(-98deg);
+      &One {
+        right: 149px;
+        @media (max-height: 1000px) {
+          right: 131px;
+          top: 6px;
+        }
+      }
+      &Two {
+        top: 10px;
+        right: 139px;
+        @media (max-height: 1000px) {
+          right: 121px;
+        }
+      }
+      &Three {
+        top: 10px;
+        right: 130px;
+        @media (max-height: 1000px) {
+          right: 114px;
+        }
+      }
+    }
+
+    &7 {
+      position: absolute;
+      top: 0;
+      transform: rotate(-102deg);
+      &One {
+        right: 96px;
+        @media (max-height: 1000px) {
+          right: 87px;
+          top: 2px;
+        }
+      }
+      &Two {
+        top: 8px;
+        right: 84px;
+        @media (max-height: 1000px) {
+          right: 76px;
+        }
+      }
+      &Three {
+        top: 8px;
+        right: 74px;
+        @media (max-height: 1000px) {
+          right: 67px;
+        }
+      }
+    }
+
+    &8 {
+      position: absolute;
+      top: 0;
+      transform: rotate(-106deg);
+      &One {
+        right: 43px;
+        @media (max-height: 1000px) {
+          right: 41px;
+        }
+      }
+      &Two {
+        top: 3px;
+        right: 31px;
+      }
+      &Three {
+        top: 2px;
+        right: 20px;
+        @media (max-height: 1000px) {
+          right: 21px;
+        }
+      }
+    }
+
+    &9 {
+      position: absolute;
+      transform: rotate(-113deg);
+      &One {
+        top: -9px;
+        right: -6px;
+        @media (max-height: 1000px) {
+          right: -4px;
+        }
+      }
+      &Two {
+        top: -5px;
+        right: -18px;
+        @media (max-height: 1000px) {
+          right: -14px;
+        }
+      }
+      &Three {
+        top: -5px;
+        right: -24px;
+        font-size: 44px;
+        @media (max-height: 1000px) {
+          font-size: 34px;
+          right: -17px;
+        }
+      }
+    }
+  }
+}
