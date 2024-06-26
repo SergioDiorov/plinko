@@ -12,7 +12,6 @@ let elementRect: DOMRect;
 // Start game function
 export function startGame(element: any, onGameDataUpdate: (ballNumber: number, squareIndex: number) => void, gameScreenSize: ScreenSize) {
   elementRect = element.getBoundingClientRect();
-  console.log(gameScreenSize);
 
   const worldWidth = elementRect.width;
   const worldHeight = elementRect.height;
