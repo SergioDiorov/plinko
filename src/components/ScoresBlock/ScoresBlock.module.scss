@@ -19,6 +19,11 @@ div .scores {
       bottom: -2%;
       font-size: 38px;
     }
+
+    @media (max-height: 814px) {
+      bottom: -2%;
+      font-size: 26px;
+    }
   }
 
   &Span {
@@ -27,17 +32,24 @@ div .scores {
       transform: rotate(-67deg);
       &One {
         top: -9px;
-        left: -2px;
+        left: -5px;
         @media (max-height: 1000px) {
           top: -10px;
-          left: 2px;
+          left: -8px;
+        }
+        @media (max-height: 814px) {
+          top: -10px;
+          left: -6px;
         }
       }
       &Two {
         top: -5px;
-        left: -14px;
+        left: -16px;
         @media (max-height: 1000px) {
-          left: -7px;
+          left: -17px;
+        }
+        @media (max-height: 814px) {
+          left: -12px;
         }
       }
       &Three {
@@ -45,8 +57,12 @@ div .scores {
         left: -22px;
         font-size: 44px;
         @media (max-height: 1000px) {
-          left: -8px;
+          left: -21px;
           font-size: 36px;
+        }
+        @media (max-height: 814px) {
+          left: -14px;
+          font-size: 24px;
         }
       }
     }
@@ -56,24 +72,34 @@ div .scores {
       top: 0;
       transform: rotate(-75deg);
       &One {
-        left: 46px;
+        left: 41px;
         @media (max-height: 1000px) {
           top: -4px;
-          left: 46px;
+          left: 33px;
+        }
+        @media (max-height: 814px) {
+          top: -4px;
+          left: 29px;
         }
       }
       &Two {
         top: 6px;
-        left: 35px;
+        left: 26px;
         @media (max-height: 1000px) {
-          left: 30px;
+          left: 21px;
+        }
+        @media (max-height: 814px) {
+          left: 20px;
         }
       }
       &Three {
         top: 0px;
-        left: 26px;
+        left: 17px;
         @media (max-height: 1000px) {
-          left: 24px;
+          left: 14px;
+        }
+        @media (max-height: 814px) {
+          left: 15px;
         }
       }
     }
@@ -83,24 +109,34 @@ div .scores {
       top: 0;
       transform: rotate(-75deg);
       &One {
-        left: 100px;
+        left: 94px;
         @media (max-height: 1000px) {
-          left: 89px;
+          left: 78px;
+          top: 3px;
+        }
+        @media (max-height: 814px) {
+          left: 67px;
           top: 3px;
         }
       }
       &Two {
         top: 8px;
-        left: 90px;
+        left: 80px;
         @media (max-height: 1000px) {
-          left: 79px;
+          left: 68px;
+        }
+        @media (max-height: 814px) {
+          left: 60px;
         }
       }
       &Three {
         top: 8px;
-        left: 76px;
+        left: 69px;
         @media (max-height: 1000px) {
-          left: 69px;
+          left: 59px;
+        }
+        @media (max-height: 814px) {
+          left: 54px;
         }
       }
     }
@@ -110,24 +146,34 @@ div .scores {
       top: 0;
       transform: rotate(-82deg);
       &One {
-        left: 153px;
+        left: 147px;
         @media (max-height: 1000px) {
-          left: 135px;
+          left: 124px;
+          top: 6px;
+        }
+        @media (max-height: 814px) {
+          left: 107px;
           top: 6px;
         }
       }
       &Two {
         top: 10px;
-        left: 148px;
+        left: 133px;
         @media (max-height: 1000px) {
-          left: 125px;
+          left: 115px;
+        }
+        @media (max-height: 814px) {
+          left: 99px;
         }
       }
       &Three {
         top: 10px;
-        left: 135px;
+        left: 125px;
         @media (max-height: 1000px) {
-          left: 118px;
+          left: 105px;
+        }
+        @media (max-height: 814px) {
+          left: 94px;
         }
       }
     }
@@ -137,25 +183,34 @@ div .scores {
       transform: rotate(-90deg);
       top: 0;
       &One {
-        right: 212px;
-
+        right: 200px;
         @media (max-height: 1000px) {
-          right: 182px;
+          right: 172px;
+          top: 8px;
+        }
+        @media (max-height: 814px) {
+          right: 149px;
           top: 8px;
         }
       }
       &Two {
         top: 12px;
-        right: 200px;
+        right: 190px;
         @media (max-height: 1000px) {
-          right: 172px;
+          right: 163px;
+        }
+        @media (max-height: 814px) {
+          right: 143px;
         }
       }
       &Three {
         top: 12px;
-        right: 185px;
+        right: 178px;
         @media (max-height: 1000px) {
-          right: 164px;
+          right: 155px;
+        }
+        @media (max-height: 814px) {
+          right: 136px;
         }
       }
     }
@@ -165,24 +220,34 @@ div .scores {
       top: 0;
       transform: rotate(-98deg);
       &One {
-        right: 149px;
+        right: 143px;
         @media (max-height: 1000px) {
-          right: 131px;
+          right: 121px;
+          top: 6px;
+        }
+        @media (max-height: 814px) {
+          right: 105px;
           top: 6px;
         }
       }
       &Two {
         top: 10px;
-        right: 139px;
+        right: 129px;
         @media (max-height: 1000px) {
-          right: 121px;
+          right: 111px;
+        }
+        @media (max-height: 814px) {
+          right: 98px;
         }
       }
       &Three {
         top: 10px;
-        right: 130px;
+        right: 121px;
         @media (max-height: 1000px) {
-          right: 114px;
+          right: 103px;
+        }
+        @media (max-height: 814px) {
+          right: 92px;
         }
       }
     }
@@ -192,24 +257,34 @@ div .scores {
       top: 0;
       transform: rotate(-102deg);
       &One {
-        right: 96px;
+        right: 91px;
         @media (max-height: 1000px) {
-          right: 87px;
+          right: 76px;
+          top: 2px;
+        }
+        @media (max-height: 814px) {
+          right: 66px;
           top: 2px;
         }
       }
       &Two {
         top: 8px;
-        right: 84px;
+        right: 77px;
         @media (max-height: 1000px) {
-          right: 76px;
+          right: 66px;
+        }
+        @media (max-height: 814px) {
+          right: 59px;
         }
       }
       &Three {
         top: 8px;
-        right: 74px;
+        right: 67px;
         @media (max-height: 1000px) {
-          right: 67px;
+          right: 57px;
+        }
+        @media (max-height: 814px) {
+          right: 53px;
         }
       }
     }
@@ -219,20 +294,26 @@ div .scores {
       top: 0;
       transform: rotate(-106deg);
       &One {
-        right: 43px;
+        right: 38px;
         @media (max-height: 1000px) {
-          right: 41px;
+          right: 29px;
+        }
+        @media (max-height: 814px) {
+          right: 28px;
         }
       }
       &Two {
         top: 3px;
-        right: 31px;
+        right: 19px;
       }
       &Three {
-        top: 2px;
-        right: 20px;
+        top: 1px;
+        right: 14px;
         @media (max-height: 1000px) {
-          right: 21px;
+          right: 11px;
+        }
+        @media (max-height: 814px) {
+          right: 15px;
         }
       }
     }
@@ -242,25 +323,35 @@ div .scores {
       transform: rotate(-113deg);
       &One {
         top: -9px;
-        right: -6px;
+        right: -10px;
         @media (max-height: 1000px) {
-          right: -4px;
+          right: -12px;
+        }
+        @media (max-height: 814px) {
+          right: -8px;
         }
       }
       &Two {
         top: -5px;
-        right: -18px;
+        right: -23px;
         @media (max-height: 1000px) {
-          right: -14px;
+          right: -23px;
+        }
+        @media (max-height: 814px) {
+          right: -16px;
         }
       }
       &Three {
         top: -5px;
-        right: -24px;
+        right: -30px;
         font-size: 44px;
         @media (max-height: 1000px) {
           font-size: 34px;
-          right: -17px;
+          right: -27px;
+        }
+        @media (max-height: 814px) {
+          font-size: 24px;
+          right: -19px;
         }
       }
     }

@@ -22,6 +22,7 @@ import ScoresBlock from 'src/components/ScoresBlock/ScoresBlock';
 import { resetGame, startGame, throwBall } from 'src/helpers/gameLogic';
 import { countScore } from 'src/helpers/countScore';
 import { slots } from 'src/constants/constants';
+import { ScreenSize } from 'src/constants/screenSize';
 
 type GameDataType = { [key: number]: number[] };
 const initialGameData: GameDataType = {
@@ -68,6 +69,21 @@ function GameTable() {
     });
   };
 
+  const handleGetGameScreenSize = () => {
+    const height = document.documentElement.offsetHeight;
+
+    if (height < 814) {
+      return ScreenSize.SMALL;
+    }
+    if (height > 814 && height < 1000) {
+      return ScreenSize.MEDIUM;
+    }
+    if (height > 1000) {
+      return ScreenSize.LARGE;
+    }
+    return ScreenSize.LARGE;
+  };
+
   const handleRemoveCanvasElements = () => {
     const canvases = document.querySelectorAll('canvas');
     canvases.forEach((canvas) => canvas.remove());
@@ -76,8 +92,8 @@ function GameTable() {
       containerRef.current && containerRef.current.querySelectorAll('canvas');
 
     if (containerRef.current && canvas?.length === 0) {
-      const smallScreen = document.documentElement.offsetHeight < 1000;
-      startGame(containerRef.current, handleGameDataUpdate, smallScreen);
+      const gameScreenSize = handleGetGameScreenSize();
+      startGame(containerRef.current, handleGameDataUpdate, gameScreenSize);
     }
   };
 
@@ -118,11 +134,11 @@ function GameTable() {
     setBallStyleLeft(null);
 
     if (ballElement && containerRect) {
-      const smallScreen = document.documentElement.offsetHeight < 1000;
+      const gameScreenSize = handleGetGameScreenSize();
       throwBall({
         x: ballElement.left - containerRect.left + 17,
         y: ballElement.top - containerRect.top + 17,
-        smallScreen,
+        gameScreenSize,
       });
       setBallsThrown((prev) => ++prev);
     }
@@ -148,8 +164,8 @@ function GameTable() {
       containerRef.current && containerRef.current.querySelectorAll('canvas');
 
     if (containerRef.current && canvas?.length === 0) {
-      const smallScreen = document.documentElement.offsetHeight < 1000;
-      startGame(containerRef.current, handleGameDataUpdate, smallScreen);
+      const gameScreenSize = handleGetGameScreenSize();
+      startGame(containerRef.current, handleGameDataUpdate, gameScreenSize);
     }
   }, [containerRef]);
 
