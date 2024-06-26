@@ -14,7 +14,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
   elementRect = element.getBoundingClientRect();
 
   const worldWidth = elementRect.width;
-  const worldHeight = elementRect.height;
+  const worldHeight = gameScreenSize === ScreenSize.EXTRA_LARGE ? 970 : elementRect.height;
   const pinLines = 13;
   const pinSize = 7.3;
   const pinGap = 49.3;
@@ -77,6 +77,19 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
           (worldWidth + 59) / 2 - lineWidth / 2 + i * (pinGap - 13),
           259 + l * (pinGap - 18.5),
           (pinSize - 1.3),
+          {
+            isStatic: true,
+            render: {
+              visible: false,
+            }
+          },
+        );
+        pins.push(pin);
+      } else if (gameScreenSize === ScreenSize.EXTRA_LARGE) {
+        const pin = Bodies.circle(
+          (linePins === 8 ? worldWidth - 90 : worldWidth - 70) / 2 - (lineWidth - 25) / 2 + i * (linePins === 8 ? pinGap + 16 : pinGap + 15),
+          191 + l * (pinGap + 6),
+          (pinSize + 2),
           {
             isStatic: true,
             render: {
@@ -154,6 +167,26 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
 
         Composite.add(engine.world, triangle);
       }
+    } else if (gameScreenSize === ScreenSize.EXTRA_LARGE) {
+      if (l % 2 === 1) {
+        const triangle = Bodies.polygon(
+          30, 185 + l * (pinGap + 8),
+          3, 65,
+          {
+            isStatic: true,
+            restitution: 2,
+            friction: 0,
+            angle: 45,
+            render: {
+              visible: false,
+            },
+          },
+        );
+
+        triangle.vertices[2].x -= triangleSize / 1;
+
+        Composite.add(engine.world, triangle);
+      }
     }
   }
 
@@ -213,6 +246,25 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
         );
 
         triangle.vertices[1].x += triangleSize / 1.3;
+
+        Composite.add(engine.world, triangle);
+      }
+    } else if (gameScreenSize === ScreenSize.EXTRA_LARGE) {
+      if (l % 2 === 1) {
+        const triangle = Bodies.polygon(
+          worldWidth - 30, 185 + l * (pinGap + 8),
+          3, 65,
+          {
+            isStatic: true,
+            restitution: 2,
+            friction: 0,
+            render: {
+              visible: false,
+            },
+          },
+        );
+
+        triangle.vertices[1].x += triangleSize / 1;
 
         Composite.add(engine.world, triangle);
       }
@@ -306,13 +358,29 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
       );
       Composite.add(engine.world, column);
       columnPositions.push(columnX);
+    } else if (gameScreenSize === ScreenSize.EXTRA_LARGE) {
+      const columnX = initialX + i * (columnWidth + columnGap);
+      const column = Bodies.rectangle(
+        columnX, // Position X
+        worldHeight - columnHeight / 2, // Position Y
+        (columnWidth + 5), (columnHeight + 16), // width and height
+        {
+          isStatic: true,
+          render: {
+            visible: false,
+          },
+          chamfer: { radius: 5 }
+        },
+      );
+      Composite.add(engine.world, column);
+      columnPositions.push(columnX);
     }
   }
 
   transparentSquares = [];
 
   // Adding transparent squares between columns to check for balls
-  const squareSize = gameScreenSize === ScreenSize.MEDIUM ? 38 : gameScreenSize === ScreenSize.SMALL ? 40 : 44; // Size of transparent square
+  const squareSize = gameScreenSize === ScreenSize.MEDIUM ? 38 : gameScreenSize === ScreenSize.SMALL ? 40 : gameScreenSize === ScreenSize.EXTRA_LARGE ? 48 : 44; // Size of transparent square
   const firstTransparentSquare = Bodies.rectangle(
     columnPositions[0] - columnWidth / 2 - squareSize / 2,
     (worldHeight + 45) - columnHeight - squareSize / 2,
@@ -423,10 +491,14 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
 
 // Throw Ball function
 export const throwBall = ({ x, y, gameScreenSize }: { x: number, y: number, gameScreenSize?: ScreenSize }) => {
-  const ballSize = gameScreenSize === ScreenSize.MEDIUM ? 10 : gameScreenSize === ScreenSize.SMALL ? 8 : 12;
+  const ballSize = gameScreenSize === ScreenSize.MEDIUM ? 10 : gameScreenSize === ScreenSize.SMALL ? 8 : gameScreenSize === ScreenSize.EXTRA_LARGE ? 14 : 12;
   const ballElastity = 0.6;
 
-  if (x > 0 && y > 0) {
+  if (gameScreenSize === ScreenSize.EXTRA_LARGE) {
+    y = y + 265
+  }
+
+  if (gameScreenSize === ScreenSize.EXTRA_LARGE || (x > 0 && y > 0)) {
     const randomX = x + (Math.random() - 0.5) * 17;
 
     const distances = columnPositions.map((columnX, index) => ({

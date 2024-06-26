@@ -18,6 +18,9 @@ div .colourfulBG {
   @media (max-height: 814px) {
     max-width: 560px;
   }
+  @media (min-height: 1270px) {
+    max-width: 950px;
+  }
 }
 
 div .frame {
@@ -31,6 +34,10 @@ div .frame {
   @media (max-height: 814px) {
     max-width: 590px;
     max-height: 677px;
+  }
+  @media (min-height: 1270px) {
+    max-width: 990px;
+    max-height: 1130px;
   }
 }
 
@@ -107,8 +114,17 @@ div .board {
     top: 34%;
   }
 
+  @media (min-height: 1270px) {
+    max-width: 590px;
+    top: 53%;
+  }
+
   canvas {
     z-index: 9;
+    @media (min-height: 1270px) {
+      position: relative;
+      top: -136px;
+    }
   }
 }
 
@@ -123,6 +139,11 @@ div .wall {
   @media (max-height: 814px) {
     width: 23px;
     bottom: 77px;
+  }
+
+  @media (min-height: 1270px) {
+    width: 43px;
+    bottom: 100px;
   }
 
   &Left {
@@ -147,6 +168,11 @@ div .pointLines {
     width: 261px;
     height: 50px;
   }
+
+  @media (min-height: 1270px) {
+    width: 474px;
+    height: 70px;
+  }
 }
 
 div .boardDots {
@@ -164,6 +190,11 @@ div .boardDots {
     bottom: 70px;
     height: 390px;
   }
+
+  @media (min-height: 1270px) {
+    width: 485px;
+    bottom: 100px;
+  }
 }
 
 div .boardBackground {
@@ -179,6 +210,10 @@ div .boardBackground {
   @media (max-height: 814px) {
     width: 330px;
     height: 576px;
+  }
+  @media (min-height: 1270px) {
+    width: 598px;
+    height: 980px;
   }
 }
 
@@ -260,6 +295,11 @@ div .numbers {
     padding: 0px 13px;
   }
 
+  @media (min-height: 1270px) {
+    top: -127px;
+    padding: 0px 30px;
+  }
+
   .ball {
     position: absolute;
     top: 0;
@@ -275,6 +315,11 @@ div .numbers {
         width: 20px;
         margin: 4px;
       }
+
+      @media (min-height: 1270px) {
+        width: 34px;
+        margin: 0px;
+      }
     }
   }
 
@@ -287,6 +332,10 @@ div .numbers {
 
     @media (max-height: 814px) {
       font-size: 22px;
+    }
+
+    @media (min-height: 1270px) {
+      font-size: 30px;
     }
   }
 }

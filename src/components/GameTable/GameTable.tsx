@@ -78,8 +78,11 @@ function GameTable() {
     if (height > 814 && height < 1000) {
       return ScreenSize.MEDIUM;
     }
-    if (height > 1000) {
+    if (height > 1000 && height < 1270) {
       return ScreenSize.LARGE;
+    }
+    if (height > 1270) {
+      return ScreenSize.EXTRA_LARGE;
     }
     return ScreenSize.LARGE;
   };

@@ -9,6 +9,9 @@ div .others {
   @media (max-height: 814px) {
     width: 25px;
   }
+  @media (min-height: 1270px) {
+    width: 44px;
+  }
 
   &1 {
     left: -28px;
@@ -20,6 +23,10 @@ div .others {
     @media (max-height: 814px) {
       bottom: -53px;
       left: -24px;
+    }
+    @media (min-height: 1270px) {
+      left: -18px;
+      bottom: -75px;
     }
   }
   &2 {
@@ -34,6 +41,10 @@ div .others {
       bottom: -63px;
       left: 14px;
     }
+    @media (min-height: 1270px) {
+      left: 44px;
+      bottom: -92px;
+    }
   }
   &3 {
     left: 80px;
@@ -46,6 +57,10 @@ div .others {
     @media (max-height: 814px) {
       left: 55px;
       bottom: -70px;
+    }
+    @media (min-height: 1270px) {
+      left: 116px;
+      bottom: -104px;
     }
   }
   &4 {
@@ -60,6 +75,10 @@ div .others {
       left: 100px;
       bottom: -75px;
     }
+    @media (min-height: 1270px) {
+      left: 190px;
+      bottom: -113px;
+    }
   }
   &5 {
     left: 207px;
@@ -72,6 +91,10 @@ div .others {
     @media (max-height: 814px) {
       left: 151px;
       bottom: -79px;
+    }
+    @media (min-height: 1270px) {
+      left: 275px;
+      bottom: -119px;
     }
   }
   &6 {
@@ -86,6 +109,10 @@ div .others {
       left: 198px;
       bottom: -78px;
     }
+    @media (min-height: 1270px) {
+      left: 355px;
+      bottom: -117px;
+    }
   }
   &7 {
     left: 329px;
@@ -98,6 +125,10 @@ div .others {
     @media (max-height: 814px) {
       left: 244px;
       bottom: -74px;
+    }
+    @media (min-height: 1270px) {
+      left: 431px;
+      bottom: -110px;
     }
   }
   &8 {
@@ -112,6 +143,10 @@ div .others {
       left: 284px;
       bottom: -65px;
     }
+    @media (min-height: 1270px) {
+      left: 500px;
+      bottom: -96px;
+    }
   }
   &9 {
     left: 437px;
@@ -124,6 +159,10 @@ div .others {
     @media (max-height: 814px) {
       left: 322px;
       bottom: -53px;
+    }
+    @media (min-height: 1270px) {
+      left: 564px;
+      bottom: -74px;
     }
   }
 }
