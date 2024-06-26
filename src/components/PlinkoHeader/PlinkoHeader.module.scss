@@ -8,6 +8,11 @@ div .headerContainer {
     padding: 0px 25px;
   }
 
+  @media (max-height: 814px) {
+    top: 142px;
+    padding: 0px 13px;
+  }
+
   button {
     z-index: 9999999999;
     opacity: 1;
@@ -16,6 +21,10 @@ div .headerContainer {
     img {
       @media (max-height: 1000px) {
         width: 260px;
+      }
+
+      @media (max-height: 814px) {
+        width: 215px;
       }
     }
 

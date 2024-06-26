@@ -15,6 +15,9 @@ div .colourfulBG {
   @media (max-height: 1000px) {
     max-width: 667px;
   }
+  @media (max-height: 814px) {
+    max-width: 560px;
+  }
 }
 
 div .frame {
@@ -24,6 +27,10 @@ div .frame {
   @media (max-height: 1000px) {
     max-width: 703px;
     max-height: 807px;
+  }
+  @media (max-height: 814px) {
+    max-width: 590px;
+    max-height: 677px;
   }
 }
 
@@ -75,7 +82,7 @@ div .score {
 }
 
 div .board {
-  max-width: 468px;
+  max-width: 450px;
   max-height: 710px;
   width: 100%;
   height: 100%;
@@ -91,8 +98,13 @@ div .board {
   transform: translate(-50%, -50%);
 
   @media (max-height: 1000px) {
-    max-width: 405px;
+    max-width: 385px;
     top: 40.6%;
+  }
+
+  @media (max-height: 814px) {
+    max-width: 324px;
+    top: 34%;
   }
 
   canvas {
@@ -108,6 +120,11 @@ div .wall {
     width: 27px;
   }
 
+  @media (max-height: 814px) {
+    width: 23px;
+    bottom: 77px;
+  }
+
   &Left {
     left: 0;
   }
@@ -119,8 +136,16 @@ div .pointLines {
   position: absolute;
   bottom: 0px;
   z-index: 99;
+  width: 362px;
+
   @media (max-height: 1000px) {
-    width: 327px;
+    width: 311px;
+    height: 52px;
+  }
+
+  @media (max-height: 814px) {
+    width: 261px;
+    height: 50px;
   }
 }
 
@@ -133,14 +158,26 @@ div .boardDots {
     width: 320px;
     bottom: 80px;
   }
+
+  @media (max-height: 814px) {
+    width: 270px;
+    bottom: 70px;
+  }
 }
 
 div .boardBackground {
   position: absolute;
   bottom: 0px;
   z-index: 1;
+  width: 454px;
+  height: 772px;
   @media (max-height: 1000px) {
-    width: 412px;
+    width: 392px;
+    height: 682px;
+  }
+  @media (max-height: 814px) {
+    width: 330px;
+    height: 576px;
   }
 }
 
@@ -209,12 +246,17 @@ div .numbers {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 0px 34px;
+  padding: 0px 20px;
   z-index: 10;
 
   @media (max-height: 1000px) {
     top: 135px;
-    padding: 0px 25px;
+    padding: 0px 15px;
+  }
+
+  @media (max-height: 814px) {
+    top: 222px;
+    padding: 0px 13px;
   }
 
   .ball {
@@ -227,6 +269,11 @@ div .numbers {
         width: 28px;
         margin: 3px;
       }
+
+      @media (max-height: 814px) {
+        width: 20px;
+        margin: 4px;
+      }
     }
   }
 
@@ -236,5 +283,9 @@ div .numbers {
     text-align: center;
     color: #d4b291;
     padding: 0;
+
+    @media (max-height: 814px) {
+      font-size: 22px;
+    }
   }
 }

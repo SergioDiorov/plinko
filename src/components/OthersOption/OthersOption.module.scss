@@ -6,85 +6,124 @@ div .others {
   @media (max-height: 1000px) {
     width: 35px;
   }
+  @media (max-height: 814px) {
+    width: 25px;
+  }
 
   &1 {
-    left: -23px;
+    left: -28px;
     bottom: -89px;
     transform: rotate(23deg);
     @media (max-height: 1000px) {
-      bottom: -71px;
+      bottom: -70px;
+    }
+    @media (max-height: 814px) {
+      bottom: -58px;
+      left: -24px;
     }
   }
   &2 {
-    left: 29px;
+    left: 23px;
     bottom: -103px;
     transform: rotate(13deg);
     @media (max-height: 1000px) {
-      left: 23px;
+      left: 15px;
       bottom: -84px;
+    }
+    @media (max-height: 814px) {
+      bottom: -69px;
+      left: 14px;
     }
   }
   &3 {
-    left: 87px;
+    left: 80px;
     bottom: -112px;
     transform: rotate(8deg);
     @media (max-height: 1000px) {
-      left: 74px;
+      left: 65px;
       bottom: -93px;
+    }
+    @media (max-height: 814px) {
+      left: 55px;
+      bottom: -77px;
     }
   }
   &4 {
-    left: 148px;
+    left: 140px;
     bottom: -119px;
     transform: rotate(6.4deg);
     @media (max-height: 1000px) {
-      left: 127px;
+      left: 118px;
       bottom: -99px;
+    }
+    @media (max-height: 814px) {
+      left: 100px;
+      bottom: -82px;
     }
   }
   &5 {
-    left: 214px;
+    left: 207px;
     bottom: -123px;
     transform: rotate(0deg);
     @media (max-height: 1000px) {
-      left: 186px;
+      left: 176px;
       bottom: -102px;
     }
-  }
-  &6 {
-    left: 281px;
-    bottom: -122px;
-    transform: rotate(-3.4deg);
-    @media (max-height: 1000px) {
-      left: 244px;
-      bottom: -101px;
-    }
-  }
-  &7 {
-    left: 340px;
-    bottom: -116px;
-    transform: rotate(-8.2deg);
-    @media (max-height: 1000px) {
-      left: 296px;
-      bottom: -97px;
-    }
-  }
-  &8 {
-    left: 397px;
-    bottom: -105px;
-    transform: rotate(-13.9deg);
-    @media (max-height: 1000px) {
-      left: 346px;
+    @media (max-height: 814px) {
+      left: 151px;
       bottom: -86px;
     }
   }
+  &6 {
+    left: 271px;
+    bottom: -122px;
+    transform: rotate(-3.4deg);
+    @media (max-height: 1000px) {
+      left: 233px;
+      bottom: -101px;
+    }
+    @media (max-height: 814px) {
+      left: 198px;
+      bottom: -85px;
+    }
+  }
+  &7 {
+    left: 329px;
+    bottom: -116px;
+    transform: rotate(-8.2deg);
+    @media (max-height: 1000px) {
+      left: 284px;
+      bottom: -97px;
+    }
+    @media (max-height: 814px) {
+      left: 244px;
+      bottom: -81px;
+    }
+  }
+  &8 {
+    left: 385px;
+    bottom: -105px;
+    transform: rotate(-13.9deg);
+    @media (max-height: 1000px) {
+      left: 333px;
+      bottom: -86px;
+    }
+    @media (max-height: 814px) {
+      left: 284px;
+      bottom: -72px;
+    }
+  }
   &9 {
-    left: 450px;
+    left: 437px;
     bottom: -90px;
     transform: rotate(339deg);
     @media (max-height: 1000px) {
-      left: 392px;
+      left: 378px;
       bottom: -70px;
+    }
+    @media (max-height: 814px) {
+      left: 322px;
+      bottom: -59px;
     }
   }
 }
