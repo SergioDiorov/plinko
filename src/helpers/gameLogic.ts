@@ -76,7 +76,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
         const pin = Bodies.circle(
           (worldWidth + 59) / 2 - lineWidth / 2 + i * (pinGap - 13),
           259 + l * (pinGap - 18.5),
-          (pinSize - 2.1),
+          (pinSize - 1.3),
           {
             isStatic: true,
             render: {
@@ -316,7 +316,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
   const firstTransparentSquare = Bodies.rectangle(
     columnPositions[0] - columnWidth / 2 - squareSize / 2,
     (worldHeight + 45) - columnHeight - squareSize / 2,
-    squareSize,
+    gameScreenSize === ScreenSize.SMALL ? squareSize - 10 : gameScreenSize === ScreenSize.MEDIUM ? squareSize - 5 : squareSize,
     squareSize,
     {
       isStatic: true,
@@ -334,7 +334,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
     const transparentSquare = Bodies.rectangle(
       posX,
       (worldHeight + 45) - columnHeight - squareSize / 2, // The height at which the transparent square is placed
-      squareSize,
+      gameScreenSize === ScreenSize.SMALL ? squareSize - 13 : gameScreenSize === ScreenSize.MEDIUM ? squareSize - 6 : squareSize,
       squareSize,
       {
         isStatic: true,
@@ -351,7 +351,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
   const lastTransparentSquare = Bodies.rectangle(
     columnPositions[columnPositions.length - 1] + columnWidth / 2 + squareSize / 2,
     (worldHeight + 45) - columnHeight - squareSize / 2,
-    squareSize,
+    gameScreenSize === ScreenSize.SMALL ? squareSize - 11 : gameScreenSize === ScreenSize.MEDIUM ? squareSize - 5 : squareSize,
     squareSize,
     {
       isStatic: true,
