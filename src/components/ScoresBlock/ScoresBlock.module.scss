@@ -24,6 +24,11 @@ div .scores {
       bottom: -2%;
       font-size: 26px;
     }
+
+    @media (min-height: 1270px) {
+      bottom: -8px;
+      font-size: 48px;
+    }
   }
 
   &Span {
@@ -41,6 +46,10 @@ div .scores {
           top: -10px;
           left: -6px;
         }
+        @media (min-height: 1270px) {
+          top: -8px;
+          left: 2px;
+        }
       }
       &Two {
         top: -5px;
@@ -50,6 +59,10 @@ div .scores {
         }
         @media (max-height: 814px) {
           left: -12px;
+        }
+        @media (min-height: 1270px) {
+          top: -4px;
+          left: -7px;
         }
       }
       &Three {
@@ -63,6 +76,11 @@ div .scores {
         @media (max-height: 814px) {
           left: -14px;
           font-size: 24px;
+        }
+        @media (min-height: 1270px) {
+          top: 0px;
+          left: -9px;
+          font-size: 39px;
         }
       }
     }
@@ -81,6 +99,9 @@ div .scores {
           top: -4px;
           left: 29px;
         }
+        @media (min-height: 1270px) {
+          left: 63px;
+        }
       }
       &Two {
         top: 6px;
@@ -91,6 +112,10 @@ div .scores {
         @media (max-height: 814px) {
           left: 20px;
         }
+        @media (min-height: 1270px) {
+          top: 6px;
+          left: 49px;
+        }
       }
       &Three {
         top: 0px;
@@ -100,6 +125,11 @@ div .scores {
         }
         @media (max-height: 814px) {
           left: 15px;
+        }
+        @media (min-height: 1270px) {
+          top: 10px;
+          left: 45px;
+          font-size: 40px;
         }
       }
     }
@@ -118,6 +148,10 @@ div .scores {
           left: 67px;
           top: 3px;
         }
+        @media (min-height: 1270px) {
+          left: 131px;
+          top: 8px;
+        }
       }
       &Two {
         top: 8px;
@@ -128,6 +162,10 @@ div .scores {
         @media (max-height: 814px) {
           left: 60px;
         }
+        @media (min-height: 1270px) {
+          top: 9px;
+          left: 119px;
+        }
       }
       &Three {
         top: 8px;
@@ -137,6 +175,11 @@ div .scores {
         }
         @media (max-height: 814px) {
           left: 54px;
+        }
+        @media (min-height: 1270px) {
+          top: 11px;
+          left: 110px;
+          font-size: 44px;
         }
       }
     }
@@ -155,6 +198,10 @@ div .scores {
           left: 107px;
           top: 6px;
         }
+        @media (min-height: 1270px) {
+          left: 197px;
+          top: 12px;
+        }
       }
       &Two {
         top: 10px;
@@ -165,6 +212,10 @@ div .scores {
         @media (max-height: 814px) {
           left: 99px;
         }
+        @media (min-height: 1270px) {
+          top: 12px;
+          left: 187px;
+        }
       }
       &Three {
         top: 10px;
@@ -174,6 +225,11 @@ div .scores {
         }
         @media (max-height: 814px) {
           left: 94px;
+        }
+        @media (min-height: 1270px) {
+          top: 14px;
+          left: 180px;
+          font-size: 44px;
         }
       }
     }
@@ -192,6 +248,10 @@ div .scores {
           right: 149px;
           top: 8px;
         }
+        @media (min-height: 1270px) {
+          right: 269px;
+          top: 14px;
+        }
       }
       &Two {
         top: 12px;
@@ -202,6 +262,10 @@ div .scores {
         @media (max-height: 814px) {
           right: 143px;
         }
+        @media (min-height: 1270px) {
+          top: 12px;
+          right: 258px;
+        }
       }
       &Three {
         top: 12px;
@@ -211,6 +275,11 @@ div .scores {
         }
         @media (max-height: 814px) {
           right: 136px;
+        }
+        @media (min-height: 1270px) {
+          font-size: 46px;
+          top: 14px;
+          right: 248px;
         }
       }
     }
@@ -229,6 +298,10 @@ div .scores {
           right: 105px;
           top: 6px;
         }
+        @media (min-height: 1270px) {
+          right: 194px;
+          top: 11px;
+        }
       }
       &Two {
         top: 10px;
@@ -239,6 +312,10 @@ div .scores {
         @media (max-height: 814px) {
           right: 98px;
         }
+        @media (min-height: 1270px) {
+          top: 10px;
+          right: 181px;
+        }
       }
       &Three {
         top: 10px;
@@ -248,6 +325,11 @@ div .scores {
         }
         @media (max-height: 814px) {
           right: 92px;
+        }
+        @media (min-height: 1270px) {
+          font-size: 44px;
+          top: 13px;
+          right: 173px;
         }
       }
     }
@@ -266,6 +348,10 @@ div .scores {
           right: 66px;
           top: 2px;
         }
+        @media (min-height: 1270px) {
+          right: 125px;
+          top: 6px;
+        }
       }
       &Two {
         top: 8px;
@@ -276,6 +362,10 @@ div .scores {
         @media (max-height: 814px) {
           right: 59px;
         }
+        @media (min-height: 1270px) {
+          top: 8px;
+          right: 117px;
+        }
       }
       &Three {
         top: 8px;
@@ -285,6 +375,11 @@ div .scores {
         }
         @media (max-height: 814px) {
           right: 53px;
+        }
+        @media (min-height: 1270px) {
+          font-size: 44px;
+          top: 11px;
+          right: 110px;
         }
       }
     }
@@ -301,10 +396,17 @@ div .scores {
         @media (max-height: 814px) {
           right: 28px;
         }
+        @media (min-height: 1270px) {
+          right: 58px;
+        }
       }
       &Two {
         top: 3px;
         right: 19px;
+        @media (min-height: 1270px) {
+          top: 3px;
+          right: 48px;
+        }
       }
       &Three {
         top: 1px;
@@ -314,6 +416,11 @@ div .scores {
         }
         @media (max-height: 814px) {
           right: 15px;
+        }
+        @media (min-height: 1270px) {
+          font-size: 40px;
+          top: 9px;
+          right: 44px;
         }
       }
     }
@@ -330,6 +437,10 @@ div .scores {
         @media (max-height: 814px) {
           right: -8px;
         }
+        @media (min-height: 1270px) {
+          top: -9px;
+          right: -3px;
+        }
       }
       &Two {
         top: -5px;
@@ -339,6 +450,11 @@ div .scores {
         }
         @media (max-height: 814px) {
           right: -16px;
+        }
+        @media (min-height: 1270px) {
+          top: -3px;
+          right: -13px;
+          font-size: 44px;
         }
       }
       &Three {
@@ -352,6 +468,11 @@ div .scores {
         @media (max-height: 814px) {
           font-size: 24px;
           right: -19px;
+        }
+        @media (min-height: 1270px) {
+          font-size: 34px;
+          top: 3px;
+          right: -15px;
         }
       }
     }
