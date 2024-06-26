@@ -55,7 +55,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
           {
             isStatic: true,
             render: {
-              visible: true,
+              visible: false,
             }
           },
         );
@@ -68,7 +68,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
           {
             isStatic: true,
             render: {
-              visible: true,
+              visible: false,
             }
           },
         );
@@ -81,7 +81,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
           {
             isStatic: true,
             render: {
-              visible: true,
+              visible: false,
             }
           },
         );
@@ -106,7 +106,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
             friction: 0,
             angle: 45,
             render: {
-              visible: true,
+              visible: false,
             },
           },
         );
@@ -126,7 +126,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
             friction: 0,
             angle: 45,
             render: {
-              visible: true,
+              visible: false,
             },
           },
         );
@@ -146,7 +146,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
             friction: 0,
             angle: 45,
             render: {
-              visible: true,
+              visible: false,
             },
           },
         );
@@ -170,7 +170,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
             restitution: 1,
             friction: 0,
             render: {
-              visible: true,
+              visible: false,
             },
           },
         );
@@ -189,7 +189,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
             restitution: 2,
             friction: 0,
             render: {
-              visible: true,
+              visible: false,
             },
           },
         );
@@ -208,7 +208,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
             restitution: 2,
             friction: 0,
             render: {
-              visible: true,
+              visible: false,
             },
           },
         );
@@ -229,7 +229,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
     {
       isStatic: true,
       render: {
-        visible: true,
+        visible: false,
       },
     }
   );
@@ -244,7 +244,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
     {
       isStatic: true,
       render: {
-        visible: true,
+        visible: false,
       },
     }
   );
@@ -271,7 +271,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
           isStatic: true,
           restitution: 0.5,
           render: {
-            visible: true,
+            visible: false,
           },
         },
       );
@@ -286,7 +286,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
         {
           isStatic: true,
           render: {
-            visible: true,
+            visible: false,
           },
         },
       );
@@ -301,7 +301,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
         {
           isStatic: true,
           render: {
-            visible: true,
+            visible: false,
           },
         },
       );
@@ -323,8 +323,8 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
       isStatic: true,
       isSensor: true,
       render: {
-        // fillStyle: 'transparent',
-        visible: true,
+        fillStyle: 'transparent',
+        visible: false,
       },
     },
   );
@@ -341,8 +341,8 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
         isStatic: true,
         isSensor: true,
         render: {
-          // fillStyle: 'transparent',
-          visible: true,
+          fillStyle: 'transparent',
+          visible: false,
         },
       },
     );
@@ -358,8 +358,8 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
       isStatic: true,
       isSensor: true,
       render: {
-        // fillStyle: 'transparent',
-        visible: true,
+        fillStyle: 'transparent',
+        visible: false,
       },
     },
   );
@@ -375,7 +375,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
     {
       isStatic: true,
       render: {
-        visible: true,
+        visible: false,
       },
     }
   );
