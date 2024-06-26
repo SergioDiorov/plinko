@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/plinko/static/css/main.9a0d6669.css",
-    "main.js": "/plinko/static/js/main.11ea4fda.js",
+    "main.css": "/plinko/static/css/main.0848910a.css",
+    "main.js": "/plinko/static/js/main.1ddd2802.js",
     "static/js/453.f613c9eb.chunk.js": "/plinko/static/js/453.f613c9eb.chunk.js",
     "static/media/ColourfulBG.png": "/plinko/static/media/ColourfulBG.973c4c261e143ccc9e61.png",
     "static/media/ResultsBackground.png": "/plinko/static/media/ResultsBackground.4ad34c0b9384018c526e.png",
@@ -20,12 +20,12 @@
     "static/media/fonnts.com-Pong-Game.ttf": "/plinko/static/media/fonnts.com-Pong-Game.0d2c8068e8e1be786ab8.ttf",
     "static/media/PointLines.png": "/plinko/static/media/PointLines.1e4ad5fc4a001f12c6fd.png",
     "index.html": "/plinko/index.html",
-    "main.9a0d6669.css.map": "/plinko/static/css/main.9a0d6669.css.map",
-    "main.11ea4fda.js.map": "/plinko/static/js/main.11ea4fda.js.map",
+    "main.0848910a.css.map": "/plinko/static/css/main.0848910a.css.map",
+    "main.1ddd2802.js.map": "/plinko/static/js/main.1ddd2802.js.map",
     "453.f613c9eb.chunk.js.map": "/plinko/static/js/453.f613c9eb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9a0d6669.css",
-    "static/js/main.11ea4fda.js"
+    "static/css/main.0848910a.css",
+    "static/js/main.1ddd2802.js"
   ]
 }
