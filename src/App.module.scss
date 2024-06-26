@@ -16,7 +16,7 @@ div .mainConainer {
   user-select: none;
   overflow: auto;
 
-  @media (max-height: 814px) {
-    // min-height: 814px;
+  @media (max-height: 713px) {
+    min-height: 713px;
   }
 }
