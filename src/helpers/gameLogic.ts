@@ -110,8 +110,8 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
     if (gameScreenSize === ScreenSize.MEDIUM) {
       if (l % 2 === 1) {
         const triangle = Bodies.polygon(
-          triangleSize / 2, 180 + l * (pinGap - 13.5),
-          3, (triangleSize - 5),
+          (triangleSize - 16) / 2, 180 + l * (pinGap - 13.5),
+          3, (triangleSize + 10),
           {
             isStatic: true,
             restitution: 1,
@@ -123,7 +123,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
           },
         );
 
-        triangle.vertices[2].x -= triangleSize / 1;
+        triangle.vertices[2].x -= triangleSize / 0.9;
 
         Composite.add(engine.world, triangle);
       }
@@ -195,8 +195,8 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
     if (gameScreenSize === ScreenSize.MEDIUM) {
       if (l % 2 === 1) {
         const triangle = Bodies.polygon(
-          worldWidth - triangleSize / 2, 180 + l * (pinGap - 13.5),
-          3, (triangleSize - 5.5),
+          worldWidth - (triangleSize - 16) / 2, 180 + l * (pinGap - 13.5),
+          3, (triangleSize + 10),
           {
             isStatic: true,
             restitution: 1,
@@ -207,7 +207,7 @@ export function startGame(element: any, onGameDataUpdate: (ballNumber: number, s
           },
         );
 
-        triangle.vertices[1].x += triangleSize / 1;
+        triangle.vertices[1].x += triangleSize / 0.9;
 
         Composite.add(engine.world, triangle);
       }

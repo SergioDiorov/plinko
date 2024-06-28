@@ -212,15 +212,19 @@ function GameTable() {
     const handleKeyDown = (event: KeyboardEvent) => {
       switch (event.key) {
         case 'ArrowLeft':
-          setBallPosition((prevPosition) =>
-            prevPosition === 1 ? 9 : prevPosition - 1,
-          );
+          if (showBall) {
+            setBallPosition((prevPosition) =>
+              prevPosition === 1 ? 9 : prevPosition - 1,
+            );
+          }
           break;
 
         case 'ArrowRight':
-          setBallPosition((prevPosition) =>
-            prevPosition === 9 ? 1 : prevPosition + 1,
-          );
+          if (showBall) {
+            setBallPosition((prevPosition) =>
+              prevPosition === 9 ? 1 : prevPosition + 1,
+            );
+          }
           break;
 
         case 'Enter':
