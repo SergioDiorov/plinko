@@ -105,8 +105,14 @@ function GameTable() {
   };
 
   const handleCloseFinalResults = () => {
-    setRollsLimit(5);
     setOpenFinalResults(false);
+    setShowBall(false);
+    setOurTeamFlash(false);
+    setOthersTeamFlash(false);
+  };
+
+  const handleResetScores = () => {
+    setRollsLimit(5);
     setBallsThrown(0);
     setOurTeamScore(0);
     setOthersTeamScore(0);
@@ -281,11 +287,7 @@ function GameTable() {
         setSlotChecked={setOthersSlotNumbers}
         rollsRemaining={rollsLimit}
         setRollsRemaining={setRollsLimit}
-        resetScore={() => {
-          handleCloseFinalResults();
-          setOthersSlotNumbers([4, 6]);
-          setSlotsData(slots);
-        }}
+        resetScore={handleResetScores}
         slotsData={slotsData}
         setSlotsData={setSlotsData}
       />
