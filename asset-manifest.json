@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/plinko/static/css/main.0848910a.css",
-    "main.js": "/plinko/static/js/main.fcd321ca.js",
+    "main.css": "/plinko/static/css/main.9485be83.css",
+    "main.js": "/plinko/static/js/main.7428f369.js",
     "static/js/453.f613c9eb.chunk.js": "/plinko/static/js/453.f613c9eb.chunk.js",
     "static/media/ColourfulBG.png": "/plinko/static/media/ColourfulBG.973c4c261e143ccc9e61.png",
     "static/media/ResultsBackground.png": "/plinko/static/media/ResultsBackground.4ad34c0b9384018c526e.png",
@@ -13,19 +13,19 @@
     "static/media/PlinkoLogo.png": "/plinko/static/media/PlinkoLogo.4e05e4eac244b830a679.png",
     "static/media/Board.png": "/plinko/static/media/Board.95f6e4d7e2da3fcfcd6e.png",
     "static/media/SettingsBackground.png": "/plinko/static/media/SettingsBackground.6347cccf435f9fa3d6bf.png",
-    "static/media/ScoreTable.png": "/plinko/static/media/ScoreTable.11b1150454fc2155b654.png",
     "static/media/RollsRemaining.png": "/plinko/static/media/RollsRemaining.51cb966de0343f00b89e.png",
     "static/media/LeftWall.png": "/plinko/static/media/LeftWall.abd53190b3733b0ed040.png",
     "static/media/RightWall.png": "/plinko/static/media/RightWall.0923f781d264cc634aa1.png",
     "static/media/fonnts.com-Pong-Game.ttf": "/plinko/static/media/fonnts.com-Pong-Game.0d2c8068e8e1be786ab8.ttf",
+    "static/media/ScoreTable.png": "/plinko/static/media/ScoreTable.ed06e000237711b0d4c4.png",
     "static/media/PointLines.png": "/plinko/static/media/PointLines.1e4ad5fc4a001f12c6fd.png",
     "index.html": "/plinko/index.html",
-    "main.0848910a.css.map": "/plinko/static/css/main.0848910a.css.map",
-    "main.fcd321ca.js.map": "/plinko/static/js/main.fcd321ca.js.map",
+    "main.9485be83.css.map": "/plinko/static/css/main.9485be83.css.map",
+    "main.7428f369.js.map": "/plinko/static/js/main.7428f369.js.map",
     "453.f613c9eb.chunk.js.map": "/plinko/static/js/453.f613c9eb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0848910a.css",
-    "static/js/main.fcd321ca.js"
+    "static/css/main.9485be83.css",
+    "static/js/main.7428f369.js"
   ]
 }
