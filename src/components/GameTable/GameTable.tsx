@@ -46,7 +46,9 @@ function GameTable() {
   const [othersSlotNumbers, setOthersSlotNumbers] = useState<number[]>([4, 6]);
   const [ballsThrown, setBallsThrown] = useState<number>(0);
   const [ourTeamScore, setOurTeamScore] = useState<number>(0);
+  const [ourTeamFlash, setOurTeamFlash] = useState<boolean>(false);
   const [othersTeamScore, setOthersTeamScore] = useState<number>(0);
+  const [othersTeamFlash, setOthersTeamFlash] = useState<boolean>(false);
   const [openFinalResults, setOpenFinalResults] = useState<boolean>(false);
   const [openSettingsModal, setOpenSettingsModal] = useState<boolean>(false);
   const [slotsData, setSlotsData] = useState<{ [key: number]: number }>(slots);
@@ -112,6 +114,8 @@ function GameTable() {
     resetGame();
     handleRemoveCanvasElements();
     setGameData(initialGameData);
+    setOurTeamFlash(false);
+    setOthersTeamFlash(false);
   };
 
   const handleSpanClick = (id: number) => {
@@ -247,6 +251,19 @@ function GameTable() {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [ballPosition, showBall]);
+
+  useEffect(() => {
+    if (ourTeamScore > 0) {
+      setOurTeamFlash(true);
+    }
+  }, [ourTeamScore]);
+
+  useEffect(() => {
+    if (othersTeamScore > 0) {
+      setOthersTeamFlash(true);
+    }
+  }, [othersTeamScore]);
+
   return (
     <div>
       <audio ref={audioRef} src={plinkoSoundEffect} preload='auto' />
@@ -294,10 +311,20 @@ function GameTable() {
       <div ref={containerRef} className={styles.board}>
         <PlinkoHeader addBall={addBall} />
         <div className={`${styles.score} ${styles.scoreLeft}`}>
-          <ScoreInfo title='OUR TEAM' score={ourTeamScore} />
+          <ScoreInfo
+            title='OUR TEAM'
+            score={ourTeamScore}
+            showFlash={ourTeamFlash}
+            disbleShowFlash={() => setOurTeamFlash(false)}
+          />
         </div>
         <div className={`${styles.score} ${styles.scoreRight}`}>
-          <ScoreInfo title='OTHER TEAMS' score={othersTeamScore} />
+          <ScoreInfo
+            title='OTHER TEAMS'
+            score={othersTeamScore}
+            showFlash={othersTeamFlash}
+            disbleShowFlash={() => setOthersTeamFlash(false)}
+          />
         </div>
         <div className={styles.numbers}>
           {showBall && (
