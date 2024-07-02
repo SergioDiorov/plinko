@@ -39,6 +39,8 @@ const initialGameData: GameDataType = {
 
 function GameTable() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<any>(null);
+
   const [gameData, setGameData] = useState<GameDataType>(initialGameData);
   const [rollsLimit, setRollsLimit] = useState<number>(5);
   const [othersSlotNumbers, setOthersSlotNumbers] = useState<number[]>([4, 6]);
@@ -148,8 +150,9 @@ function GameTable() {
   };
 
   const handlePlayAudio = () => {
-    const audio = new Audio(plinkoSoundEffect);
-    audio.play();
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
+    audioRef.current.play();
   };
 
   const addBall = () => {
@@ -246,6 +249,7 @@ function GameTable() {
   }, [ballPosition, showBall]);
   return (
     <div>
+      <audio ref={audioRef} src={plinkoSoundEffect} preload='auto' />
       <FinalResultsModal
         ourTeamScore={ourTeamScore}
         othersTeamScore={othersTeamScore}
