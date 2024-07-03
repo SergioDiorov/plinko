@@ -2,7 +2,6 @@ import { FC } from 'react';
 
 import styles from './FinalResultsModal.module.scss';
 import ScoreInfo from 'src/components/ScoreInfo/ScoreInfo';
-import DoneButton from 'src/assets/DoneButton.png';
 
 interface FinalResultsProps {
   ourTeamScore: number;
