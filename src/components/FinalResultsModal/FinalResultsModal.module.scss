@@ -38,6 +38,16 @@ div .finalResultsModal {
     forwards;
   opacity: 0;
 
+  @media (max-height: 830px) {
+    background-size: 1200px;
+    background-position: 50% calc(50% - -11px);
+  }
+
+  @media (max-height: 650px) {
+    background-size: 1088px;
+    background-position: 50% calc(50% + 20px);
+  }
+
   button {
     border-radius: 10px;
     padding: 10px 24px;
@@ -72,6 +82,15 @@ div .score {
   justify-content: center;
   gap: 35px;
   margin-bottom: 11px;
+
+  @media (max-height: 830px) {
+    gap: 15px;
+    margin-bottom: 0px;
+  }
+  @media (max-height: 650px) {
+    gap: 10px;
+    margin-bottom: -20px;
+  }
 }
 
 @keyframes show {
